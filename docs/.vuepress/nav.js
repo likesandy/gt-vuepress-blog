@@ -41,7 +41,7 @@ module.exports = [
         text: '面试宝典', link: '/interview/'
     },
     {
-        text: '优文转载', link: '/transshipment/',
+        text: '优文转载', link: '/transshipment/notes/June.md',
     },
     {
         text: '工具箱',
