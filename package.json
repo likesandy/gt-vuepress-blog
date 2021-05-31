@@ -1,9 +1,14 @@
 {
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
     "vuepress": "^1.8.2"
   },
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
   }
 }

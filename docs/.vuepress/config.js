@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = {
   title: "codertao",
   description: "了解真相才能获得真正的自由",
@@ -12,8 +14,7 @@ module.exports = {
     nav: require("./nav.js"),
     sidebar: require("./sidebar.js"),
     collapsable: true,
-    // sidebarDepth: 2,
-    lastUpdated: "Last Updated",
+    lastUpdated: "最近更新",
     searchMaxSuggestoins: 10,
     serviceWorker: {
       updatePopup: {
@@ -24,4 +25,18 @@ module.exports = {
     editLinks: true,
     editLinkText: "在 GitHub 上编辑此页 ！",
   },
+  plugins: [
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp) => {
+          const moment = require('moment')
+          moment.locale('zh-cn')
+          return moment(timestamp).format('LLLL')
+        }
+      }
+    ],
+    ['@vuepress/back-to-top'],
+    ['@vuepress/medium-zoom']
+  ]
 };
