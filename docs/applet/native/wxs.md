@@ -18,15 +18,6 @@ autoPrev: wxss
   - 由于运行环境的差异，在 iOS 设备上小程序内的 WXS 会比 JavaScript 代码快 `2 ~ 20` 倍。在 android 设备
     上二者运行效率无差异
 
-**测试代码**
-
-```js
-// wxs.js
-numberFixed(number) {
-  return number.toFixed(2);
-}
-```
-
 ```xml
 <!-- wxs.wxml -->
 
@@ -35,8 +26,15 @@ numberFixed(number) {
 <view>{{numberFixed(12.345)}}</view>
 ```
 
-**测试结果**
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/13f6bfa27e2443cd92d0049e9495001a~tplv-k3u1fbpfcp-watermark.image)
+```js
+// wxs.js
+numberFixed(number) {
+  return number.toFixed(2);
+}
+```
+
+![](/applet/native/21.png)
+
 虽然没有报错,但是界面没有任何效果
 
 ## wxs 的写法
@@ -44,8 +42,6 @@ numberFixed(number) {
 ### 方式一
 
 在 wxml 中编写 xws 代码
-
-**测试代码**
 
 ```xml
 <!-- wxs.wxml -->
@@ -64,8 +60,7 @@ numberFixed(number) {
 <view>{{info.age}}</view>
 ```
 
-**测试结果**
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/96813b9c8ba8445e97a4a5755a2c026c~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/22.png)
 
 ::: warning
 wxs 不支持 es6 语法
@@ -75,7 +70,12 @@ wxs 不支持 es6 语法
 
 在 xms 文件中编写 xms 代码
 
-**测试代码**
+```xml
+<!-- wxs.wxml -->
+<wxs src="./info.wxs" module="info" />
+<view>{{info.name}}</view>
+<view>{{info.age}}</view>
+```
 
 ```js
 // info.js
@@ -87,22 +87,20 @@ module.exports = {
 };
 ```
 
-```xml
-<!-- wxs.wxml -->
-<wxs src="./info.wxs" module="info" />
-<view>{{info.name}}</view>
-<view>{{info.age}}</view>
-```
-
-**测试结果**
-
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/756cfcbc940549cfa2108fb65f1dfbaa~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/23.png)
 
 ::: tip
 开发中推荐第二种做法
 :::
 
 ## 案例练习
+
+```xml
+<!-- wxs.wxml -->
+<wxs src="./format.wxs" module="format" />
+<view>{{format.priceFormat(12.3456)}}</view>
+<view>{{format.priceFormat(12.3456,3)}}</view>
+```
 
 ```js
 // format.wxs
@@ -118,14 +116,6 @@ module.exports = {
 };
 ```
 
-```xml
-<!-- wxs.wxml -->
-<wxs src="./format.wxs" module="format" />
-<view>{{format.priceFormat(12.3456)}}</view>
-<view>{{format.priceFormat(12.3456,3)}}</view>
-```
-
-**测试结果**
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/18652bdf20de406383c6fc320ca251ed~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/24.png)
 
 :books: [官方文档](https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/)

@@ -13,7 +13,18 @@ autoGroup-5: WXSS&WXML&WXS
 - 如果有**相同的样式**
   - 优先级依次是：行内样式 > 页面样式 > 全局样式
 
-**测试代码**
+```xml
+<!-- wxss.xml -->
+
+<!-- 行内(内联)样式 -->
+<view style="color:red;font-size:50px">哈哈哈</view>
+<!-- 页内样式 -->
+<view class="box">哈哈哈</view>
+<!-- 全局样式 -->
+<view class="container">哈哈哈</view>
+<!-- 三种样式作用于同一个组件 -->
+<view class="box container" style="color:red">哈哈哈</view>
+```
 
 ```css
 /* app.wxss */
@@ -31,22 +42,7 @@ autoGroup-5: WXSS&WXML&WXS
 }
 ```
 
-```xml
-<!-- wxss.xml -->
-
-<!-- 行内(内联)样式 -->
-<view style="color:red;font-size:50px">哈哈哈</view>
-<!-- 页内样式 -->
-<view class="box">哈哈哈</view>
-<!-- 全局样式 -->
-<view class="container">哈哈哈</view>
-<!-- 三种样式作用于同一个组件 -->
-<view class="box container" style="color:red">哈哈哈</view>
-```
-
-**测试结果**
-
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/71f93f4939704e31b25fde37ea0b5a8a~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/6.png)
 
 ## 支持的选择器
 
@@ -54,7 +50,7 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
 
 作为一个前端工程师,css 我这里应该可以不必过多赘述了吧,忘了的看我前面 css 的博客文章来复习一下
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb4ffda7ded444f0b83ca71fce270e2a~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/7.png)
 
 ## wxss 的扩展 – 尺寸单位
 
@@ -64,11 +60,17 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
   - 如在 iPhone6 上，屏幕宽度为 375px，共有 750 个物理像素，则 750rpx = 375px = 750 物理像素，1rpx =
     0.5px = 1 物理像素
 
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/29a615796699466885b6630fc6ce56cc~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/8.png)
 
 - **建议**： 开发微信小程序时设计师可以用 **iPhone6** 作为视觉稿的标准
 
-**测试代码**
+```xml
+<!-- xmss.wsml -->
+
+<!-- 前端也需要进行配置尺寸的适配: em/rem/vw/vn -->
+<view class="box1"></view>
+<view class="box2"></view>
+```
 
 ```css
 /* wxss.wxss */
@@ -85,17 +87,7 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
 }
 ```
 
-```xml
-<!-- xmss.wsml -->
-
-<!-- 前端也需要进行配置尺寸的适配: em/rem/vw/vn -->
-<view class="box1"></view>
-<view class="box2"></view>
-```
-
-**测试结果**
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a495d6578c2b42c19cbb0ac1b3358d7d~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/9.png)
 
 ## wxss 的扩展 – 样式导入
 
@@ -114,8 +106,6 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
 - 导入的位置在哪里
   - 可以在 app.wxss 中导入这个样式
   - 也可以在 page.wxss 导入这个样式
-
-**测试代码**
 
 ```css
 /* box.wxss */
@@ -137,9 +127,7 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
 @import "./style/box.wxss";
 ```
 
-**测试结果**
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a495d6578c2b42c19cbb0ac1b3358d7d~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/10.png)
 
 ## 官方样式库
 
@@ -148,14 +136,6 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
 - 这个时候就可以使用样式库来减少我们的工作量
 
 下面就通过使用样式库的搜索框来讲解 weui 的使用
-
-```css
-/* wxss.wxss */
-
-/* 搜索框旁边有个搜索的icon,所以要引入对应的icon文件 */
-@import "./icon/weui-icon.wxss";
-@import "./style/weui-searchbar.wxss";
-```
 
 ```xml
 <!-- wxss.wxml -->
@@ -174,6 +154,14 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
   </form>
   <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
 </view>
+```
+
+```css
+/* wxss.wxss */
+
+/* 搜索框旁边有个搜索的icon,所以要引入对应的icon文件 */
+@import "./icon/weui-icon.wxss";
+@import "./style/weui-searchbar.wxss";
 ```
 
 ```js
@@ -207,10 +195,8 @@ wxss 和 css 基本是一致的,所以选择器的内容和 css 都是**差不�
   },
 ```
 
-**测试效果**
+![](/applet/native/12.png)
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1dccb0508d26464cbe652e582db96e96~tplv-k3u1fbpfcp-watermark.image)
-
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99819c00b96e47e282aef28fe3c1bb9b~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/11.png)
 
 :books: [官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxss.html)

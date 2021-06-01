@@ -17,8 +17,5 @@ module.exports = {
         "/applet/native/": "邂逅小程序",
       }
     },
-    collapse: {
-      collapseList: ["/applet/native/"]
-    }
   },
 };

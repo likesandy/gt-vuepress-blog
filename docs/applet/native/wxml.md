@@ -18,7 +18,17 @@ autoPrev: wxss
     面的更新
   - 小程序和 Vue/React 一样, 提供了插值语法: `Mustache语法(双大括号)`
 
-**测试代码**
+```xml
+<!-- wxml.wxml -->
+
+<!-- 1.wxml的格式 -->
+<!-- 只能使用内置的组件,不能使用类似html中的标签,比如div -->
+<!-- 单标签必须要以/结尾,否则会报错 -->
+<input type="text" />
+<!-- 严格区分大小写 -->
+<view class="title">Hello World</view>
+<view Class='title'>Hello World</view>
+```
 
 ```css
 /* wxml.wxss */
@@ -32,28 +42,25 @@ input {
 }
 ```
 
-```xml
-<!-- wxml.wxml -->
-
-<!-- 1.wxml的格式 -->
-<!-- 只能使用内置的组件,不能使用类似html中的标签,比如div -->
-<!-- 单标签必须要以/结尾,否则会报错 -->
-<input type="text" />
-<!-- 严格区分大小写 -->
-<view class="title">Hello World</view>
-<view Class='title'>Hello World</view>
-```
-
-**测试结果**
-
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19ebd5b9fd6f4abf9b5cc041efddd0b2~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/13.png)
 
 ## Mustache 语法(二)
 
 - Mustache 语法不仅仅可以直接显示数据, 也可以使用表达式
 - 并且可以绑定到属性
 
-**测试代码**
+```xml
+<!-- wxml.wxml -->
+
+<!-- 数据绑定(跟Vue一样) -->
+<view>{{message}}</view>
+<view>{{firstName}} {{lastName}}</view>
+<view>{{firstName + ' ' + lastName}}</view>
+<view>{{ age >= 18 ? '成年人' : '未成年人'}}</view>
+<view>{{nowTime}}</view>
+<view class="box {{isActive ? 'title' : ''}}">Hello World</view>
+<button size="mini" bindtap="changeColor">切换颜色</button>
+```
 
 ```css
 /* wxml.wxss */
@@ -79,22 +86,7 @@ changeColor() {
 },
 ```
 
-```xml
-<!-- wxml.wxml -->
-
-<!-- 数据绑定(跟Vue一样) -->
-<view>{{message}}</view>
-<view>{{firstName}} {{lastName}}</view>
-<view>{{firstName + ' ' + lastName}}</view>
-<view>{{ age >= 18 ? '成年人' : '未成年人'}}</view>
-<view>{{nowTime}}</view>
-<view class="box {{isActive ? 'title' : ''}}">Hello World</view>
-<button size="mini" bindtap="changeColor">切换颜色</button>
-```
-
-**测试效果**
-
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/41d39a5f8c2449d39f40ca91cbf5c9e2~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/14.png)
 
 ## 逻辑判断
 
@@ -103,21 +95,6 @@ changeColor() {
   - 当条件为 false 时, view 组件不会渲染出来
 - 根据按钮点击, 决定是否渲染
 - 也可以有多个条件
-
-**测试代码**
-
-```js
-// wxml.js
-data: {
-  isShow: true,
-  score: 50,
-},
-toggleCom() {
-  this.setData({
-    isShow: !this.data.isShow
-  })
-},
-```
 
 ```xml
 <!-- wxml.wxml -->
@@ -132,9 +109,20 @@ toggleCom() {
 <button size="mini" bindtap="incremeent">分数+10</button>
 ```
 
-**测试效果**
+```js
+// wxml.js
+data: {
+  isShow: true,
+  score: 50,
+},
+toggleCom() {
+  this.setData({
+    isShow: !this.data.isShow
+  })
+},
+```
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2cede50fd2e84cf3a84cf31575f31625~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/15.png)
 
 ### hidden 属性
 
@@ -144,20 +132,6 @@ toggleCom() {
 - **hidden 和 wx:if 的区别**
   - hidden 控制隐藏和显示是控制是否添加 hidden 属性
   - wx:if 是控制组件是否渲染的
-
-**测试代码**
-
-```js
-// wxml.wxml
-data: {
-  isShow: false,
-},
-toggleCom() {
-  this.setData({
-    isShow: !this.data.isShow
-  })
-},
-```
 
 ```xml
 <!-- wxml.wxml -->
@@ -171,9 +145,19 @@ toggleCom() {
 <view hidden="{{isShow}}">哈哈哈</view>
 ```
 
-**测试效果**
+```js
+// wxml.wxml
+data: {
+  isShow: false,
+},
+toggleCom() {
+  this.setData({
+    isShow: !this.data.isShow
+  })
+},
+```
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23d0862a729b4045887dfe7dc6c7aee8~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/16.png)
 
 ## 列表渲染
 
@@ -227,20 +211,6 @@ toggleCom() {
   - 找到正确的位置区插入新的节点
 - 所以一句话，`key 的作用主要是为了高效的更新虚拟 DOM`
 
-**测试代码**
-
-```js
-// wxml.js
-data: {
-  isShow: false,
-  nums: [
-    [1, 2, 3, 4, 5],
-    [6, 7, 8, 9, 10],
-    [11, 12, 13, 14, 15]
-  ]
-},
-```
-
 ```xml
 <!-- wxml.wxml -->
 
@@ -261,16 +231,24 @@ data: {
 </block>
 ```
 
-**测试效果**
+```js
+// wxml.js
+data: {
+  isShow: false,
+  nums: [
+    [1, 2, 3, 4, 5],
+    [6, 7, 8, 9, 10],
+    [11, 12, 13, 14, 15]
+  ]
+},
+```
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/730873f30bdc487e988673a12bbfc194~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/17.png)
 
 ## 模板用法
 
 - WXML 提供**模板（template）**，可以在模板中定义代码片段，在不同的地方调用。(是一种 wxml 代码的复用机制)
   - 使用 `name 属性`，作为模板的名字, 然后在 template 内定义代码片段
-
-**测试代码**
 
 ```xml
 <!-- wxml.wxml -->
@@ -295,9 +273,7 @@ data: {
 <template is='contenItem2' data="{{btnText:'警告',Text:'呵呵呵'}}" />
 ```
 
-**测试效果**
-
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/67bd7c89e3a24b2390a53704edf57d62~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/18.png)
 
 ## wxml 的引入
 
@@ -305,8 +281,6 @@ data: {
 
 - Import 引入：import 可以在该文件中使用目标文件定义的 template
 - 注意：wxml 中不能递归引入（也就是 A 引入了 B 的 template，不会引入 B 中引入 C 的 template）
-
-**测试代码**
 
 ```xml
 <!-- template.wxml -->
@@ -333,15 +307,11 @@ data: {
 <template is='abc' />
 ```
 
-**测试效果**
-
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7dd81cf4ea340348e07b20fe7cd1a15~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/19.png)
 
 ### include
 
 - include 可以将目标文件中除了 template ,wxs 外的整个代码引入，相当于是拷贝到 include 位置
-
-**测试代码**
 
 ```xml
 <!-- footer.wxml -->
@@ -359,9 +329,7 @@ data: {
 <include  src='/wxml/header.wxml'/>
 ```
 
-**测试结果**
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b9f2885695b24bffb941c619c80955f5~tplv-k3u1fbpfcp-watermark.image)
+![](/applet/native/20.png)
 
 ::: details 总结
 

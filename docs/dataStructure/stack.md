@@ -14,7 +14,7 @@ title: 栈
 
 - 栈结构示例图
 
-  ![image.png](https://gitee.com/ahuntsun/BlogImgs/raw/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%A0%88/1.png)
+  ![](/dataStructure/5.png)
 
 * 栈,它是一种受限的线性表,**后进先出**(LIFO)
   - 其限制是仅允许在**表的一端**进行插入和删除运算.这一端被称为**栈顶**,另一端就称之为**栈底**
@@ -122,7 +122,7 @@ console.log(s.toString());
 
 **测试结果**
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/63b9662808f3491db5b749155f9407d6~tplv-k3u1fbpfcp-watermark.image)
+![](/dataStructure/6.png)
 
 ## 案例
 
@@ -199,4 +199,4 @@ console.log(decimalism2Conversion(100));
 
 **测试结果**
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7aea56dfdf9a4a7d9cc63917b5d3c4ff~tplv-k3u1fbpfcp-watermark.image)
+![](/dataStructure/7.png)

@@ -1,19 +1,17 @@
 ---
 title: 队列
----
-
-## 认识队列
+autoPrev: stack
+---## 认识队列
 
 队列是是一种受限的线性表，特点为**先进先出**（FIFO：first in first out）
 
 - 受限之处在于它只允许在表的**前端**（front）进行删除操作；
 - 在表的**后端**（rear）进行插入操作
 
-![image.png](https://gitee.com/ahuntsun/BlogImgs/raw/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%98%9F%E5%88%97/1.png)
-
+![](/dataStructure/1.png)
 相当于排队买票，先来的先买票，后来的后买票
 
-![image.png](https://gitee.com/ahuntsun/BlogImgs/raw/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E9%98%9F%E5%88%97/2.png)
+![](/dataStructure/2.png)
 
 ## 队列的应用
 
@@ -98,7 +96,7 @@ console.log(q.toString());
 ```
 
 **测试结果**
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/64314b9b9ed94ca49901fbd4525ce8fe~tplv-k3u1fbpfcp-watermark.image)
+![](/dataStructure/3.png)
 
 ## 案例
 
@@ -172,7 +170,7 @@ Pass(names, 6);
 ```
 
 **测试结果**
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/873c492f62ad41afa6a8e9d9c9632429~tplv-k3u1fbpfcp-watermark.image)
+![](/dataStructure/4.png)
 
 ::: tip
 [AhumtSun 的一篇文章](http://ahuntsun.top/navitem/algorithm/theory/notes/2.html#_3-2-%E6%B3%A8%E6%84%8F%E7%82%B9)

@@ -3,4 +3,4 @@ title: 六月
 autoPrev: May
 ---
 
-![](/share/June/1.jpg)
+![](/share/2.jpg)
