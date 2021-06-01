@@ -40,6 +40,7 @@ module.exports = [
   },
   { text: '数据结构', link: '/dataStructure/' },
   { text: '优文转载', link: '/share/', },
+  { text: '随笔', link: '/essay/' },
   {
     text: '工具箱', items: [
       {
