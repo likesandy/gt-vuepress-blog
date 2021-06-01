@@ -7,8 +7,7 @@
   },
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "docs:nav": "vuepress nav docs"
+    "build": "vuepress build docs"
   },
   "dependencies": {
     "moment": "^2.29.1"
