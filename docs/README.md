@@ -1,9 +1,9 @@
 ---
 home: true
-heroImage: /img/Sandy.jpg
-actionText: 博客笔记 →
+heroImage: /sandy.jpg
+actionText: 进入笔记
 heroText: codertao
-actionLink: /arithmetic/notes/stack/
+actionLink: /about/
 features:
   - title: 简洁至上
     details: 使用最简单清晰的话语编写博客。

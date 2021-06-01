@@ -2,11 +2,13 @@
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "vuepress": "^1.8.2"
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-auto-sidebar": "^2.2.3"
   },
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "docs:nav": "vuepress nav docs"
   },
   "dependencies": {
     "moment": "^2.29.1"
