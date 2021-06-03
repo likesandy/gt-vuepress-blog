@@ -409,7 +409,7 @@ increment(event) {
 
 ![](/applet/native/35.png)
 
-## 自定义组件练习
+### 自定义组件练习
 
 我们做一个导航栏最常见的一个小功能
 
@@ -496,7 +496,7 @@ tabItemClick(event) {
 
 ![](/applet/native/38.png)
 
-## 页面直接调用组件方法
+### 页面直接调用组件方法
 
 ```xml
 <!--components/my-sel/my-sel.wxml-->
@@ -543,3 +543,142 @@ increment() {
 ```
 
 ![](/applet/native/39.png)
+
+## 插槽
+
+- slot 翻译为插槽：
+  - 在生活中很多地方都有插槽，电脑的 USB 插槽，插板当中的电源插槽。
+  - 插槽的目的是让我们原来的设备具备更多的扩展性。
+  - 比如电脑的 USB 我们可以插入 U 盘、硬盘、手机、音响、键盘、鼠标等等。
+- 组件的插槽：
+  - 组件的插槽也是为了让我们封装的组件更加具有扩展性。
+  - 让使用者可以决定组件内部的一些内容到底展示什么。
+- 栗子：移动网站中的导航栏。
+  - 移动开发中，几乎每个页面都有导航栏。
+  - 导航栏我们必然会封装成一个插件，比如 nav-bar 组件。
+  - 一旦有了这个组件，我们就可以在多个页面中复用了。
+- 但是，每个页面的导航是一样的吗？类似右图
+
+### 单个插槽的使用
+
+- 除了内容和样式可能由外界决定之外，也可能外界想决定显示的方式
+  - 比如我们有一个组件定义了头部和尾部，但是中间的内容可能是一段文字，也可能是一张图片，或者是一个进
+    度条。
+  - 在不确定外界想插入什么其他组件的前提下，我们可以在组件内预留插槽：
+
+### 多个插槽的使用
+
+- 有时候为了让组件更加灵活, 我们需要定义多个插槽：
+
+```xml
+<!--components/my-slot/my-slot.wxml-->
+<view>我是组件的头部</view>
+<view>
+<!-- 给插槽起个name -->
+  <slot name="slot1" />
+</view>
+<view>
+  <slot name="slot2" />
+</view>
+<view>
+  <slot name="slot3" />
+</view>
+<view>我是组件的尾部</view>
+```
+
+```js
+// components/my-slot/my-slot.js
+
+// 开启使用多个插槽
+options: {
+  multipleSlots: true
+},
+```
+
+```json
+// home.json
+{
+  "usingComponents": {
+    "my-slot": "/components/my-slot/my-slot"
+  }
+}
+```
+
+```xml
+<!--pages/home/home.wxml-->
+<my-slot>
+  <!-- 通过name调用不同的插槽 -->
+  <slider slot="slot2"></slider>
+  <button size="mini" slot="slot1">按钮</button>
+  <text slot="slot3">哈哈哈</text>
+</my-slot>
+```
+
+![](/applet/native/40.png)
+
+## Component 构造器
+
+- Component 构造器用户创建我们的自定义组件对象, 调用 Component 时, 可以传入属性、数据、方法等
+
+```js
+// components/my-slot/my-slot.js
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {},
+
+  /**
+   * 组件的初始数据
+   */
+  data: {},
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {},
+  /**
+   * 组件的额外配置
+   */
+  options: {},
+  // 外界给组件传入额外的样式
+  externalClasses: [],
+  // 可以监听properties/data的改变
+  observers: {},
+  /**
+   * 组件中监听生命周期函数
+   */
+  // 监听所在页面的生命周期
+  pageLifetimes: {
+    show() {
+      console.log("监听组件所在页面显示时回调");
+    },
+    hide() {
+      console.log("监听组件所在页面隐藏时回调");
+    },
+    resize() {
+      console.log("监听页面尺寸的改变");
+    },
+  },
+  // 监听组件本身的生命周期
+  lifetimes: {
+    created() {
+      console.log("组件被创建");
+    },
+    attached() {
+      console.log("组件被添加到页面中");
+    },
+    ready() {
+      console.log("组件被渲染出来");
+    },
+    movied() {
+      console.log("组件被移动到节点树另一个位置");
+    },
+    detached() {
+      console.log("组件被移除");
+    },
+  },
+});
+```
+
+:books: [官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)
