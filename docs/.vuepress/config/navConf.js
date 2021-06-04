@@ -56,10 +56,9 @@ module.exports = [
         ]
       },
       {
-        text: '博客指南',
+        text: '电影分享',
         items: [
-          { text: '掘金', link: 'https://juejin.im/' },
-          { text: 'CSDN', link: 'https://blog.csdn.net/' }
+          { text: '豆瓣Top', link: '/movies/' },
         ]
       }
     ]
