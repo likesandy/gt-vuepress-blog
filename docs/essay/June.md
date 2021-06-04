@@ -19,11 +19,11 @@ sidebarDepth: 2
 
 直播间: [斗鱼 606118](https://www.douyu.com/topic/yjhgl_zhibojianBD?rid=606118)
 
-:muscle::muscle:**肌肉金轮** yyds
-
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1654y1V7a9" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[肌肉金轮](https://www.bilibili.com/video/BV1R64y1d7pm)
 
 :speech_balloon: [如何看待《英雄联盟》主播大司马因肌肉金轮的视频再度爆火？](https://www.zhihu.com/question/461809084)
+
+:muscle::muscle:**肌肉金轮** yyds
 
 ### 北大数学天才
 
@@ -43,7 +43,7 @@ sidebarDepth: 2
 
 总结来说:就是太强了没有对手,但是 ios 生态制约了 M1 的发挥,只能说是发展空间很大很大,但是这个性能不讲武德
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1F64y1R7YG" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[这颗处理器太强，冲爆了我们的排行榜](https://www.bilibili.com/video/BV1F64y1R7YG)
 
 :rocket::rocket: [移动芯片性能排行榜](https://www.socpk.com/)
 
@@ -57,13 +57,13 @@ sidebarDepth: 2
 
 看王师傅做菜简直就是一种享受,虽然学不会(dog)
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1Dg411379q" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[厨师长教你：“豆腐茄子煲”的家常做法，咸香入味，简单易学](https://www.bilibili.com/video/BV1Dg411379q)
 
 ### 广告带师-华农兄弟
 
 真是绝了,你怎么那么懂我 :joy:
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV19y4y1g7XJ" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[华农兄弟：场里的鸡鸭避暑指南，我们让它们清凉一夏，很实用哦](https://www.bilibili.com/video/BV19y4y1g7XJ)
 
 ## 6/3
 
@@ -71,27 +71,29 @@ sidebarDepth: 2
 
 还就乘风破浪王冰冰
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1E54y157xZ" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[菜鸟小王现已解锁运动豪华套餐，get 冲浪](https://www.bilibili.com/video/BV1E54y157xZ)
 
 ### Harmony 新品
 
 **两分钟发布会**
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1154y137d1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[两分钟发布会 | HarmonyOS、MatePad Pro、Huawei Watch 3，还有 P50 彩蛋](https://www.bilibili.com/video/BV1154y137d1)
 
 **MatePad Pro 2021**
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1Ph411e76q" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[「科技美学开箱」Harmony OS 来了！华为 MatePad Pro 2021 款开箱体验](https://www.bilibili.com/video/BV1Ph411e76q)
 
 **WATCH 3/3 Pro**
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1GV41147ti" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[「科技美学开箱」华为 WATCH 3/3 Pro 系列开箱体验 | Harmony OS 功能丰富可安装三方软件](https://www.bilibili.com/video/BV1GV41147ti)
 
 **Harmony OS 多设备**
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1154y137mh" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[「科技美学」在一起，真可以！Harmony OS 多设备 全场景详细体验](https://www.bilibili.com/video/BV1154y137mh)
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1Gy4y1u7cc" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+**鸿蒙**
+
+:tv:[鸿蒙的诞生意味着什么？](https://www.bilibili.com/video/BV1Gy4y1u7cc)
 
 :::tip
 鸿蒙已来，未来可期
@@ -101,10 +103,10 @@ sidebarDepth: 2
 
 **最好的时间就是现在,我们不能改变过去,但是能改变未来**
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV1r64y1k7mr" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[【暴走大事件第八季】09 考前减压版大事件已经就位，王尼玛“神押题”助你笑对高考（红）](https://www.bilibili.com/video/BV1r64y1k7mr)
 
 ### 致命女人
 
 看了视频,感觉这电视有点意思,什么时候去看看
 
-<iframe src="//player.bilibili.com/player.html?&bvid=BV14h411e7UC" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="allowfullscreen" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts" style="width: 640px; height: 530px; max-width: 100%;"> </iframe>
+:tv:[永远别惹女人！这火遍全网的狗血爽剧教渣男做人！《致命女人》第一季](https://www.bilibili.com/video/BV14h411e7UC)
