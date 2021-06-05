@@ -2,6 +2,8 @@
 title: 关于我
 ---
 
+![](/about/3.jpg)
+
 ## Me
 
 - **昵称**: codertao

@@ -25,3 +25,5 @@ autoPrev: pack
   - 使用 Go 语言编写的，可以直接转换成机器代码，而无需经过字节码；
   - ESBuild 可以充分利用 CPU 的多内核，尽可能让它们饱和运行；
   - ESBuild 的所有内容都是从零开始编写的，而不是使用第三方，所以从一开始就可以考虑各种性能问题；
+
+:books:[官方文档](https://esbuild.github.io/)

@@ -110,3 +110,23 @@ sidebarDepth: 2
 看了视频,感觉这电视有点意思,什么时候去看看
 
 :tv:[永远别惹女人！这火遍全网的狗血爽剧教渣男做人！《致命女人》第一季](https://www.bilibili.com/video/BV14h411e7UC)
+
+## 6/5
+
+### 田野上的繁荣
+
+听君一席话,胜读十年书
+
+:tv:[路边摊 30 元能买啥，炸鸡汉堡鸡蛋灌饼，这一顿瓷实](https://www.bilibili.com/video/BV1DU4y1V7Df)
+
+### 致命女人第一季
+
+光看解说都觉得这部剧很爽,有时间了我也去看看
+
+:tv:[渣男处刑指南，不爽不要三连！狗血爽剧《致命女人》第一季](https://www.bilibili.com/video/BV1Gg411G7Bi)
+
+### 绝命毒师第二季
+
+传闻绝命毒师是全世界剧排行第一的剧情片
+
+:tv:[隐藏 BOSS 帅气登场！黑化老白霸气外露《绝命毒师》第二季大结局 9-13](https://www.bilibili.com/video/BV1fQ4y1X7oC)
