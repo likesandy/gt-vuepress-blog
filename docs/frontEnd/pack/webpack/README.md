@@ -2,6 +2,16 @@
 title: 首页
 ---
 
+## 关于
+
+本章根据 **coderwhy 老师**腾讯课堂的视频讲解进行的笔记记录,感兴趣的可以去[腾讯课堂](https://ke.qq.com/course/3453141):tada::tada:查看 coderwhy 老师的课程
+
+本章的代码已上传 [GitHub](https://github.com/likesandy/learn-webpack),感兴趣的可以下载然后配合笔记更佳
+
+本章先对 webpack 进行一次简单的邂逅,后期还会深入 webpack 的学习,敬请期待:rose::rose:
+
+遇到很多问题以及更多细节相关的方面请记住多看:books:[官方文档](https://webpack.docschina.org/)
+
 ## 认识 webpack
 
 - 事实上随着前端的快速发展，目前前端的开发已经变的越来越复杂了：
