@@ -37,7 +37,7 @@ element();
 
 然后进行`npm run build`进行打包
 
-![](/frontEnd/webpack/3.png)
+![](/frontEnd/pack/webpack/3.png)
 
 ## css-loader 的使用
 
@@ -168,7 +168,7 @@ npm install less -D
 npx lessc ./src/css/title.less ./src/css/title.css
 ```
 
-![](/frontEnd/webpack/4.png)
+![](/frontEnd/pack/webpack/4.png)
 
 ## less-loader 处理
 
@@ -230,7 +230,7 @@ npm install autoprefixer -D
 npx postcss --use autoprefixer -o post.css title.css
 ```
 
-![](/frontEnd/webpack/5.png)
+![](/frontEnd/pack/webpack/5.png)
 
 ## postcss-loader
 

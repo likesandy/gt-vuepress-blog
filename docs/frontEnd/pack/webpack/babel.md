@@ -49,7 +49,7 @@ const say = (name) => {
 npx babel demo.js --out-file text.js
 ```
 
-![](/frontEnd/webpack/18.png)
+![](/frontEnd/pack/webpack/18.png)
 
 转换后发现感觉没有任何转换
 
@@ -65,7 +65,7 @@ npm install @babel/plugin-transform-arrow-functions -D
 npx babel demo.js --out-file text.js --plugins=@babel/plugin-transform-arrow-functions
 ```
 
-![](/frontEnd/webpack/19.png)
+![](/frontEnd/pack/webpack/19.png)
 
 - 查看转换后的结果：我们会发现 const 并没有转成 var
   - 这是因为 plugin-transform-arrow-functions，并没有提供这样的功能；
@@ -79,7 +79,7 @@ npm install @babel/plugin-transform-block-scoping -D
 npx babel demo.js --out-file text.js --plugins=@babel/plugin-transform-block-scoping,@babel/plugin-transform-arrow-functions
 ```
 
-![](/frontEnd/webpack/20.png)
+![](/frontEnd/pack/webpack/20.png)
 
 ## Babel 的预设 preset
 
@@ -95,7 +95,7 @@ npm install @babel/preset-env -D
 npx babel demo.js --out-file text.js --presets=@babel/preset-env
 ```
 
-![](/frontEnd/webpack/21.png)
+![](/frontEnd/pack/webpack/21.png)
 
 :::tip
 所以一般开发我们就直接使用预设就可以了
@@ -117,11 +117,11 @@ npx babel demo.js --out-file text.js --presets=@babel/preset-env
 
 - Babel 的执行阶段
 
-![](/frontEnd/webpack/22.png)
+![](/frontEnd/pack/webpack/22.png)
 
 - 当然，这只是一个简化版的编译器工具流程，在每个阶段又会有自己具体的工作：
 
-![](/frontEnd/webpack/23.png)
+![](/frontEnd/pack/webpack/23.png)
 
 ## babel-loader
 

@@ -11,14 +11,14 @@ module.exports = [
       },
       {
         text: 'JS框架', items: [
-          { text: 'Vue', link: '/frontEnd/frame/Vue/' },
-          { text: 'React', link: '/frontEnd/frame/React/' }
+          { text: 'Vue', link: '/frontEnd/frame/vue/' },
+          { text: 'React', link: '/frontEnd/frame/react/' }
         ]
       },
       {
         text: '打包工具', items: [
           { text: 'Webpack', link: '/frontEnd/pack/webpack/' },
-          { text: 'Vite', link: '/frontEnd/pack/Vite/' }
+          { text: 'Vite', link: '/frontEnd/pack/vite/' }
         ]
       },
     ]

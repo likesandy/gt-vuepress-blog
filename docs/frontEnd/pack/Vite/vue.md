@@ -11,14 +11,16 @@ title: 处理vue
   - Vue 2 支持：[underfin/vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2)
 
 - 首先要使用 vue,肯定的先按照 vue
-  ```sh
-  npm install vue@next -D
-  ```
+
+```sh
+npm install vue@next -D
+```
+
 - 安装支持 vue 的插件:
 
-  ```sh
-  npm install @vitejs/plugin-vue -D
-  ```
+```sh
+npm install @vitejs/plugin-vue -D
+```
 
 - 在 vite.config.js 中配置插件：
 
@@ -74,4 +76,4 @@ import App from "./vue/app.vue";
 createApp(App).mount("#app");
 ```
 
-![](/frontEnd/Vite/10.png)
+![](/frontEnd/pack/vite/10.png)

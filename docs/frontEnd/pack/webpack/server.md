@@ -52,7 +52,7 @@ npm install webpack-dev-server -D
 },
 ```
 
-![](/frontEnd/webpack/33.png)
+![](/frontEnd/pack/webpack/33.png)
 
 这里的意思是如果我们使用了 webpack-dev-server,因为它这里面会自动箭头 watch 的变化,所以在配置里面就不需要配置 watch 了
 
@@ -88,11 +88,11 @@ devServer: {
 },
 ```
 
-![](/frontEnd/webpack/34.png)
+![](/frontEnd/pack/webpack/34.png)
 
 我画了一个很草率的图来说明 CopyWebpackPlugin 和 content 的差别
 
-![](/frontEnd/webpack/35.png)
+![](/frontEnd/pack/webpack/35.png)
 
 那是不是就表明这个 CopyWebpackPlugin 的插件就没有用了喃?
 
@@ -133,7 +133,7 @@ devServer: {
 
 - 浏览器可以看到如下效果：
 
-![](/frontEnd/webpack/36.png)
+![](/frontEnd/pack/webpack/36.png)
 
 - 但是你会发现，当我们修改了某一个模块的代码时，依然是刷新的整个页面：
   - 这是因为我们需要去指定哪些模块发生更新时，进行 HMR；
@@ -167,7 +167,7 @@ if (module.hot) {
 
 ## HMR 的原理图
 
-![](/frontEnd/webpack/37.png)
+![](/frontEnd/pack/webpack/37.png)
 
 ## hotOnly、host 配置
 
@@ -204,7 +204,7 @@ open: true;
 - compress 是否为静态文件开启 gzip compression：
   - 默认值是 false，可以设置为 true；
 
-![](/frontEnd/webpack/38.png)
+![](/frontEnd/pack/webpack/38.png)
 
 ## Proxy
 
@@ -299,7 +299,7 @@ module.exports = {
   - 所以如果我们代码中想要添加加载 .vue 或者 jsx 或者 ts 等文件时，我们必须自己写上扩展名；
 
 如果没有配置这个的话,没有不添加 vue 的后缀名,就会报错
-![](/frontEnd/webpack/38.png)
+![](/frontEnd/pack/webpack/39.png)
 
 当我们配置了 extensions 的话就不会有问题了
 

@@ -121,7 +121,7 @@ module.exports = {
 };
 ```
 
-![](/frontEnd/webpack/1.png)
+![](/frontEnd/pack/webpack/1.png)
 
 ## 指定配置文件
 
@@ -149,4 +149,4 @@ module.exports = {
     体等）；
   - 然后遍历图结构，打包一个个模块（根据文件的不同使用不同的 loader 来解析）；
 
-![](/frontEnd/webpack/2.png)
+![](/frontEnd/pack/webpack/2.png)

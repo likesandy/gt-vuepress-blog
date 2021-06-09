@@ -22,8 +22,8 @@ npm init @vitejs/app <project-name>
 npm install @vitejs/create-app -g create-app
 ```
 
-![](/frontEnd/Vite/12.png)
+![](/frontEnd/pack/vite/12.png)
 
-![](/frontEnd/Vite/13.png)
+![](/frontEnd/pack/vite/13.png)
 
-![](/frontEnd/Vite/14.png)
+![](/frontEnd/pack/vite/14.png)

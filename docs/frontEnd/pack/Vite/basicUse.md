@@ -48,9 +48,9 @@ console.log(sum(10, 20));
 console.log(_.join(["cba", "nba"]));
 ```
 
-![](/frontEnd/Vite/1.png)
+![](/frontEnd/pack/vite/1.png)
 
-![](/frontEnd/Vite/2.png)
+![](/frontEnd/pack/vite/2.png)
 
 - 但是如果我们不借助于其他工具，直接使用 ES Module 来开发有什么问题呢？
   - 首先，我们会发现在使用 loadash 时，加载了上百个模块的 js 代码，对于浏览器发送请求是巨大的消耗；
@@ -114,6 +114,6 @@ console.log(sum(20, 30));
 console.log(_.join(["nba", "cba"]));
 ```
 
-![](/frontEnd/Vite/3.png)
+![](/frontEnd/pack/vite/3.png)
 
-![](/frontEnd/Vite/4.png)
+![](/frontEnd/pack/vite/4.png)

@@ -8,8 +8,6 @@ title: 首页
 
 本章的代码已上传 [GitHub](https://github.com/likesandy/learn-vite),感兴趣的可以下载然后配合笔记更佳
 
-本章先对 vite 进行一次简单的邂逅,后期还会深入 webpack 的学习,敬请期待:rose::rose:
-
 遇到很多问题以及更多细节相关的方面请记住多看:books:[官方文档](https://cn.vitejs.dev/)
 
 ## 认识 Vite

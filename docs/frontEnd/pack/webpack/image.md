@@ -44,7 +44,7 @@ export function element() {
 }
 ```
 
-![](/frontEnd/webpack/6.png)
+![](/frontEnd/pack/webpack/6.png)
 
 ## file-loader
 
@@ -167,7 +167,7 @@ npm install url-loader -D
   },
   ```
 
-  ![](/frontEnd/webpack/7.png)
+![](/frontEnd/pack/webpack/7.png)
 
 ## 认识 asset module type
 
@@ -242,7 +242,7 @@ output: {
 
 - 首先，我从阿里图标库中下载了几个字体图标：
 
-![](/frontEnd/webpack/8.png)
+![](/frontEnd/pack/webpack/8.png)
 
 - 在 element.js 文件中引入，并且添加一个 i 元素用于显示字体图标：
 

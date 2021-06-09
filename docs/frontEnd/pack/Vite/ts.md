@@ -39,9 +39,9 @@ import mult from "./ts/mult";
 console.log(mult(20, 30));
 ```
 
-![](/frontEnd/Vite/8.png)
+![](/frontEnd/pack/vite/8.png)
 
-![](/frontEnd/Vite/9.png)
+![](/frontEnd/pack/vite/9.png)
 
 - 如果我们查看浏览器中的请求，会发现请求的依然是 ts 的代码:
   - 这是因为 vite 中的服务器 Connect 会对我们的请求进行转发;

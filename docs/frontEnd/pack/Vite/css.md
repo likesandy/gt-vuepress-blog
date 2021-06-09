@@ -43,21 +43,24 @@ titleEl.innerHTML = "Hello World";
 document.body.appendChild(titleEl);
 ```
 
-![](/frontEnd/Vite/5.png)
+![](/frontEnd/pack/vite/5.png)
 
 ## 处理 css 预处理器
 
 - vite 可以直接支持 css 预处理器，比如 less
   - 直接导入 less；
   - 之后安装 less 编译器；
-  ```sh
-  npm install less -D
-  ```
+
+```sh
+npm install less -D
+```
+
 - vite 直接支持 postcss 的转换：
   - 只需要安装 postcss，并且配置 postcss.config.js 的配置文件即可；
-  ```sh
-  npm install postcss postcss-preset-env -D
-  ```
+
+```sh
+npm install postcss postcss-preset-env -D
+```
 
 ```html
 <!-- index.html -->
@@ -108,6 +111,6 @@ module.exports = {
 };
 ```
 
-![](/frontEnd/Vite/6.png)
+![](/frontEnd/pack/vite/6.png)
 
-![](/frontEnd/Vite/7.png)
+![](/frontEnd/pack/vite/7.png)

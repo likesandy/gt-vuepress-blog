@@ -28,7 +28,7 @@ const app = createApp({
 - 界面上是没有效果的：
   - 并且我们查看运行的控制台，会发现如下的警告信息；
 
-![](/frontEnd/webpack/24.png)
+![](/frontEnd/pack/webpack/24.png)
 
 这是因为 webpack 对 vue 源代码打包对其进行解析采用的不同的版本
 
@@ -68,7 +68,7 @@ import { createApp } from "vue/dist/vue.esm-bundler";
 
 这样就没有任何问题了
 
-![](/frontEnd/webpack/25.png)
+![](/frontEnd/pack/webpack/25.png)
 
 ## 运行时+编译器 vs 仅运行时
 
@@ -130,7 +130,7 @@ app.mount("#app");
 
 - 我们对代码打包会报错：我们需要合适的 Loader 来处理文件。
 
-![](/frontEnd/webpack/26.png)
+![](/frontEnd/pack/webpack/26.png)
 
 - 这个时候我们需要使用 vue-loader：
 
@@ -150,7 +150,7 @@ npm install vue-loader@next -D #v3
 
 ## @vue/compiler-sfc
 
-![](/frontEnd/webpack/27.png)
+![](/frontEnd/pack/webpack/27.png)
 
 - 打包依然会报错，这是因为我们必须添加@vue/compiler-sfc 来对 template 进行解析：
 
@@ -158,7 +158,7 @@ npm install vue-loader@next -D #v3
 npm install @vue/compiler-sfc -D
 ```
 
-![](/frontEnd/webpack/28.png)
+![](/frontEnd/pack/webpack/28.png)
 
 - 另外我们需要配置对应的 Vue 插件：
 
@@ -171,17 +171,17 @@ plugins: [new VueLoaderPlugin()];
 - 重新打包即可支持 App.vue 的写法
 - 另外，我们也可以编写其他的.vue 文件来编写自己的组件；
 
-![](/frontEnd/webpack/29.png)
+![](/frontEnd/pack/webpack/29.png)
 
 ## 全局标识的配置
 
 - 我们会发现控制台还有另外的一个警告：
 
-![](/frontEnd/webpack/30.png)
+![](/frontEnd/pack/webpack/30.png)
 
 - 在 GitHub 上的文档中我们可以找到说明：
 
-![](/frontEnd/webpack/31.png)
+![](/frontEnd/pack/webpack/31.png)
 
 - 这是两个特性的标识，一个是使用 Vue 的 Options，一个是 Production 模式下是否支持 devtools 工具；
 - 虽然他们都有默认值，但是强烈建议我们手动对他们进行配置；
@@ -194,7 +194,8 @@ new DefinePlugin({
 }),
 ```
 
-![](/frontEnd/webpack/32.png)
+![](/frontEnd/pack/webpack/32.png)
+
 这个时候就没有任何问题了
 
 最后补充一个知识,当我们用了 vue-loader 的时候,vue/compiler-sfc 会对 template 进行解析
