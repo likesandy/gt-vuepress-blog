@@ -2,6 +2,16 @@
 title: 首页
 ---
 
+## 关于
+
+本章根据 **coderwhy 老师**腾讯课堂的视频讲解进行的笔记记录,感兴趣的可以去[腾讯课堂](https://ke.qq.com/course/3453141):tada::tada:查看 coderwhy 老师的课程
+
+本章的代码已上传 [GitHub](https://github.com/likesandy/learn-vite),感兴趣的可以下载然后配合笔记更佳
+
+本章先对 vite 进行一次简单的邂逅,后期还会深入 webpack 的学习,敬请期待:rose::rose:
+
+遇到很多问题以及更多细节相关的方面请记住多看:books:[官方文档](https://cn.vitejs.dev/)
+
 ## 认识 Vite
 
 - Webpack 是目前整个前端使用最多的构建工具，但是除了 webpack 之后也有其他的一些构建工具：

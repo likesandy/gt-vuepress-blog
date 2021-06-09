@@ -25,17 +25,18 @@ title: 处理ts
 ```
 
 ```ts
-// src/ts/foo.ts
-export default function sum(num1: number, num2: number): number {
-  return num1 + num2;
+// src/ts/mult.ts
+
+export default function mult(num1: number, num2: number): number {
+  return num1 * num2;
 }
 ```
 
 ```js
 // src/app.js
-import sum from "./ts/foo";
+import mult from "./ts/mult";
 
-console.log(sum(20, 30));
+console.log(mult(20, 30));
 ```
 
 ![](/frontEnd/Vite/8.png)

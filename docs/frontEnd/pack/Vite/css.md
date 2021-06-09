@@ -78,12 +78,13 @@ document.body.appendChild(titleEl);
 
 ```less
 // src/css/title.less
+
 @fontSize: 50px;
-@Color: blue;
+@bgc: blue;
 
 .title {
   font-size: @fontSize;
-  color: @Color;
+  background-color: @bgc;
 
   user-select: none;
 }

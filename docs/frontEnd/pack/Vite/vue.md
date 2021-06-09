@@ -50,7 +50,7 @@ export default {
 ```
 
 ```vue
-<!-- src/vue/app.vue -->
+<!-- src/vue/App.vue -->
 <template>
   <h2>{{ message }}</h2>
 </template>

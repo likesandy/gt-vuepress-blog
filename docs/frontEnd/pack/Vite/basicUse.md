@@ -4,6 +4,8 @@ title: 基本使用
 
 ## 浏览器原生支持模块化
 
+测试的时候打开 index.html 必须使用 live server 打开(vscode),否则将会**跨域**
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -26,6 +28,12 @@ title: 基本使用
 export const sum = (num1, num2) => {
   return num1 + num2;
 };
+```
+
+安装一下模块来测试一下
+
+```sh
+npm install lodash-es
 ```
 
 ```js
