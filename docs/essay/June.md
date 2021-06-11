@@ -175,7 +175,7 @@ sidebarDepth: 2
 
 我成绩比较差,所以我就不多说了,祝全体考生考个好成绩,无悔青春,
 
-### 致命女儿第二季
+### 致命女人第二季
 
 第二季的故事主题跟第一季完全不同,不知道又会掀起怎样的风浪
 
@@ -201,8 +201,60 @@ sidebarDepth: 2
 
 :tv:[厨师长教你："蒜蓉小龙虾"的家常做法，蒜香浓郁，唇齿留香](https://www.bilibili.com/video/BV1X64y1R7Cj)
 
-### 越狱第三季大结局
+### 越狱第三季
 
 越狱感觉越来越拉了,没一二季那么好看了,但也还是不错
 
 :tv:[越狱计划状况百出，环环相扣刺激不断！美剧《越狱》第三季 4-6](https://www.bilibili.com/video/BV1hV41147JZ)
+
+## 6/9
+
+### 心灵捕手
+
+天赋还是很重要啊
+
+:tv:[细读经典：这两个好莱坞一线居然是靠写剧本成名的？高分励志电影《心灵捕手》](https://www.bilibili.com/video/BV12K4y1X7Va)
+
+### 希望小学
+
+要永远充满希望
+
+:tv:[我们的希望小学已投入使用！一起来看看吧！](https://www.bilibili.com/video/BV1xV41147Gw)
+
+## 6/11
+
+### 每日吃播
+
+吃的挺香啊
+
+:tv:[五星级酒店吃 138 的海鲜自助，大虾鲍鱼牛排全场不限量，美](https://www.bilibili.com/video/BV1nB4y1g7e3)
+
+### 电竞 LOL
+
+游戏不玩了,看看视频了解还是挺好的
+
+:tv:[靠谱盘点 122：复健成功！马哥时隔 306 天重回赛场，Faker 率 T1 出道逐梦演艺圈？](https://www.bilibili.com/video/BV1X64y167m3)
+
+### 小姐
+
+橘势大好,大橘已定
+
+:tv:[《致命女人》+《色·戒》，看完她我跪了！高分悬疑电影《小姐》](https://www.bilibili.com/video/BV1Wv411p7qb)
+
+### 漫威新片- <<洛基>>
+
+Loki!! Loki!!
+
+:tv:[首播豆瓣 9.2！路子最野的漫威剧《洛基》你看懂了吗？](https://www.bilibili.com/video/BV1zy4y1u71m)
+
+### 横店群众演员
+
+看出了有梦想的人眼里都有光,特别是两个小两口
+
+:tv:[深入横店当群众演员，是种怎样的体验？](https://www.bilibili.com/video/BV1G54y1G7gf)
+
+### 超级马里奥
+
+背叛是最痛的感觉
+
+:tv:[【超级小桀】抓住瞬间的人 会走向胜利！](https://www.bilibili.com/video/BV1ao4y1y7Qg)
