@@ -105,19 +105,13 @@ sidebarDepth: 2
 
 :tv:[【暴走大事件第八季】09 考前减压版大事件已经就位，王尼玛“神押题”助你笑对高考（红）](https://www.bilibili.com/video/BV1r64y1k7mr)
 
-### 致命女人
+### 致命女人第一季
 
 看了视频,感觉这电视有点意思,什么时候去看看
 
 :tv:[永远别惹女人！这火遍全网的狗血爽剧教渣男做人！《致命女人》第一季](https://www.bilibili.com/video/BV14h411e7UC)
 
 ## 6/5
-
-### 田野上的繁荣
-
-听君一席话,胜读十年书
-
-:tv:[路边摊 30 元能买啥，炸鸡汉堡鸡蛋灌饼，这一顿瓷实](https://www.bilibili.com/video/BV1DU4y1V7Df)
 
 ### 致命女人第一季
 
@@ -189,12 +183,6 @@ sidebarDepth: 2
 
 :tv:[【短的发布会】现场座无虚席！苹果 WWDC 牵手鸿蒙一家亲？](https://www.bilibili.com/video/BV1ZQ4y197hc)
 
-### 近期不雅视频
-
-传播的人很可恶,但我也不会同情男主角和女主角
-
-:tv:[【【罗翔】传播校园不雅视频，够不构成犯罪？](https://www.bilibili.com/video/BV1RB4y1u7Pf)
-
 ### 蒜蓉小龙虾
 
 感觉挺简单啊,忙碌了 1 小时,最后完成了,点了份外卖
@@ -223,12 +211,6 @@ sidebarDepth: 2
 
 ## 6/11
 
-### 每日吃播
-
-吃的挺香啊
-
-:tv:[五星级酒店吃 138 的海鲜自助，大虾鲍鱼牛排全场不限量，美](https://www.bilibili.com/video/BV1nB4y1g7e3)
-
 ### 电竞 LOL
 
 游戏不玩了,看看视频了解还是挺好的
@@ -241,7 +223,7 @@ sidebarDepth: 2
 
 :tv:[《致命女人》+《色·戒》，看完她我跪了！高分悬疑电影《小姐》](https://www.bilibili.com/video/BV1Wv411p7qb)
 
-### 漫威新片- <<洛基>>
+### 漫威新片
 
 Loki!! Loki!!
 
@@ -261,17 +243,11 @@ Loki!! Loki!!
 
 ## 6/12
 
-### 端午节快乐
+### 华农兄弟
 
 杀只猪,提前祝大家端午节快乐 🎉🎉
 
 :tv:[华农兄弟：红烧肉又跑出去拱菜，没办法，只好把它宰了包粽子](https://www.bilibili.com/video/BV1tv411p7na)
-
-### 每日吃播
-
-这种古镇看起来是真不错
-
-:tv:[一天最少卖出 500 碗！这个面馆绝了~](https://www.bilibili.com/video/BV1BQ4y197vQ)
 
 ## 6/13
 
@@ -281,17 +257,11 @@ Loki!! Loki!!
 
 :tv:[抬头挺胸，最错误的体态矫正动作，越练越丑！](https://www.bilibili.com/video/BV1Df4y1b7DP)
 
-### 每日吃播
-
-我还是喜欢吃肉粽 😋😋
-
-:tv:[10 元臭豆腐粽子，5 斤碳烤大排，暴雨前享受“有味大餐”太滋润了](https://www.bilibili.com/video/BV1hf4y187oV)
-
 ## 6/14
 
 ### 祝大家端午节快乐
 
-### 每日法律知识
+### 罗翔老师
 
 每次都能从罗老师这里学到很多
 
@@ -320,3 +290,63 @@ Alright？
 那么拼命 还不是为了自己成为别人的底气
 
 :tv:[“你那么拼命到底图什么？”](https://www.bilibili.com/video/BV1g5411u7hf?t=7)
+
+## 6/16
+
+### 郭杰瑞
+
+感谢中国,中国 nb👍👍
+
+:tv:[深入大凉山悬崖村，对比中美扶贫区别在哪？](https://www.bilibili.com/video/BV13v411W7B6)
+
+### 华农
+
+真的是国产剧情
+
+:tv:[华农兄弟：兄弟遇到点小麻烦，帮他解决了，他很开心哦](https://www.bilibili.com/video/BV1dw411d7Bu)
+
+### 国足
+
+无论过程怎样，结果如何，国足现阶段的目标已经完成了。
+
+国足 nb,退钱哥都不退钱了
+
+:speech_balloon: [40 强赛末战国足 3:1 击败叙利亚顺利晋级 12 强赛，你给国足的表现打几分？](https://www.zhihu.com/question/465257701)
+
+**朱雀门事变**
+
+:tv:[“RNM，退钱！”](https://www.bilibili.com/video/BV1X64y167ZY?from=search&seid=16560343744888900986)
+
+### NBA
+
+杜兰特太猛了
+
+:speech_balloon: [NBA 2020-21 赛季篮网 114:108 雄鹿，如何评价这场比赛？](https://www.zhihu.com/question/465262539)
+
+### 王思聪
+
+王思聪都要舔,你凭什么不舔 👅👅
+
+:speech_balloon: [如何看待王思聪和孙一宁的聊天记录被曝光？](https://www.zhihu.com/question/465160470)
+
+:tv:[情景再现，王思聪被女网红怼的体无完肤。](https://www.bilibili.com/video/BV18f4y1t7MJ?p=1&share_medium=iphone&share_plat=ios&share_source=GENERIC&share_tag=s_i&timestamp=1623820014&unique_k=wyME4u)
+
+### Window11
+
+window 厉害,但是我喜欢 mac
+
+:speech_balloon: [如何评价微软 2021 年 Windows 10 系统新引入的功能「资讯和兴趣」？](https://www.zhihu.com/question/464657974)
+
+## 6/17
+
+### 暴走大事件
+
+这期真的杀疯了
+
+:tv: [【暴走大事件第八季】10 胖胖本色出演诠释父爱如山倒，神秘大妈自曝身份雷翻王尼玛！（蓝）](https://www.bilibili.com/video/BV1Dh411a7rX)
+
+### 女胖胖
+
+好爽啊,太便宜了吧,好想去
+
+:tv: [100 块能在临期零食大市场里买到多少零食？上百种零食随便挑！](https://www.bilibili.com/video/BV1Jw411f7h4)

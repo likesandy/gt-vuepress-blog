@@ -8,6 +8,6 @@ module.exports = {
   plugins: pluginConf,
   themeConfig: {
     nav: navConf,
-    lastUpdated: "最近更新",
+    lastUpdated: '上次更新',
   },
 };

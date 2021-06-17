@@ -49,16 +49,10 @@ module.exports = [
         ]
       },
       {
-        text: '在线服务',
+        text: '日常分享',
         items: [
-          { text: '阿里云', link: 'https://www.aliyun.com/' },
-          { text: '腾讯云', link: 'https://cloud.tencent.com/' }
-        ]
-      },
-      {
-        text: '电影分享',
-        items: [
-          { text: '豆瓣Top', link: '/movies/' },
+          { text: '吃播集锦', link: '/mukbang/' },
+          { text: '电影分享', link: '/movies/' },
         ]
       }
     ]
