@@ -249,4 +249,75 @@ export default {
 - 另外一个参数是 context，我们也称之为是一个 SetupContext，它里面包含三个属性：
   - **attrs**：所有的非 prop 的 attribute；
   - **slots**：父组件传递过来的插槽（这个在以渲染函数返回时会有作用，后面会讲到）；
-  - **emit**：当我们组件内部需要发出事件时会用到 emit（因为我们不能访问 this，所以不可以通过 this.\$emit 发出事件）；
+  - **emit**：当我们组件内部需要发出事件时会用到 emit（因为我们不能访问 this，所以不可以通过 this.\$emit 发出事件）
+
+### setup 函数的返回值
+
+- setup 既然是一个函数，那么它也可以有返回值，它的返回值用来做什么呢？
+  - setup 的返回值可以在**模板 template 中被使用**；
+  - 也就是说我们可以**通过 setup 的返回值来替代 data 选项**；
+- 甚至是我们可以返回一个执行函数来代替在 methods 中定义的方法：
+
+![](/frontEnd/frame/vue/68.png)
+
+- 但是，如果我们将 counter 在 increment 或者 decrement 进行操作时，是否可以实现界面的响应式呢？
+  - 答案是**不可以**；
+  - 这是因为对于一个**定义的变量**来说，默认情况下，**Vue 并不会跟踪它的变化，来引起界面的响应式操作**；
+
+![](/frontEnd/frame/vue/69.png)
+
+### setup 不可以使用 this
+
+- 官方关于 this 有这样一段描述
+  - 表达的含义是 **this 并没有指向当前组件实例**；
+  - 并且**在 setup 被调用之前，data、computed、methods** 等都没有被解析；
+  - 所以**无法在 setup 中获取 this**；
+
+:::warning
+在 setup 中你应该避免使用 this，因为它不会找到组件实例。setup 的调用发生在 data property、computed property 或 methods 被解析之前，所以它们无法在 setup 中被获取。
+:::
+
+### Reactive API
+
+- 如果想为在 setup 中定义的数据提供响应式的特性，那么我们可以使用 reactive 的函数：
+
+```vue{3,10,13-15}
+<template>
+  <div>
+    <h2>当前计数:{{ state.counter }}</h2>
+    <button @click="increment">+1</button>
+    <button @click="decrement">-1</button>
+  </div>
+</template>
+
+<script>
+import { reactive } from "vue";
+export default {
+  setup() {
+    const state = reactive({
+      counter: 0,
+    });
+    const increment = () => {
+      state.counter++;
+    };
+    const decrement = () => {
+      state.counter--;
+    };
+    return {
+      state,
+      increment,
+      decrement,
+    };
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+![](/frontEnd/frame/vue/70.gif)
+
+- 那么这是什么原因呢？为什么就可以变成响应式的呢？
+  - 这是因为当我们**使用 reactive 函数处理我们的数据之后**，数据**再次被使用**时就会**进行依赖收集**；
+  - 当**数据发生改变**时，所有**收集到的依赖**都是**进行对应的响应式操作**（比如更新界面）；
+  - 事实上，我们编写的**data 选项**，也是在内部**交给了 reactive 函数**将其编程响应式对象的；

@@ -350,3 +350,23 @@ window 厉害,但是我喜欢 mac
 好爽啊,太便宜了吧,好想去
 
 :tv: [100 块能在临期零食大市场里买到多少零食？上百种零食随便挑！](https://www.bilibili.com/video/BV1Jw411f7h4)
+
+## 6/18
+
+### 阿幕降临
+
+很有内涵,每次都是暗喻
+
+:tv: [它的存在，就是原罪！](https://www.bilibili.com/video/BV14o4y1k7kT)
+
+### 黄一刀有毒
+
+太真实了
+
+:tv: [平时上课 VS 上公开课](https://www.bilibili.com/video/BV1nq4y1L72U)
+
+### 大学毕业当服务员
+
+360 行行出状元
+
+:speech_balloon: [如何看待郑州大学学生不顾父亲「威胁」，坚持从程序员改行当服务员，并说：干这个不丢人？](https://www.zhihu.com/question/465534726)
