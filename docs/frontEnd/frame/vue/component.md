@@ -590,7 +590,7 @@ export default {
   - 当然，这个 computed 是**vue3 的新特性**，在后面我会专门讲解，这里大家可以先直接使用一下；
   - 这是因为 **computed 返回的是一个 ref 对象**，需要取出其中的 **value 来使用**；
 
-```vue {12,34}
+```vue
 <template>
   <div>
     <h2>Father</h2>
@@ -633,7 +633,7 @@ export default {
 <style></style>
 ```
 
-```vue {6}
+```vue
 <template>
   <div>
     <h2>Son</h2>
@@ -822,7 +822,7 @@ export default {
 - 我们一个组件 MySlotCpn.vue：该组件中有一个插槽，我们可以在插槽中放入需要显示的内容；
 - 我们在 App.vue 中使用它们：我们可以插入普通的内容、html 元素、组件元素，都可以是可以的；
 
-```vue {5-7}
+```vue
 // MySlotCpn.vue
 <template>
   <div>

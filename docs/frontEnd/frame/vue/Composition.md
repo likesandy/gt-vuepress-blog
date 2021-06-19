@@ -1,11 +1,12 @@
 ---
 title: Composition API
 autoPrev: animation
+sidebarDepth: 3
 ---
 
 ## Mixin
 
-### 认识 Mixin
+#### 认识 Mixin
 
 - 目前我们是使用组件化的方式在开发整个 Vue 的应用程序，但是组件和组件之间有时候会存在相同的代码逻辑，我
   们希望对相同的代码逻辑进行抽取。
@@ -14,7 +15,7 @@ autoPrev: animation
   - 一个 Mixin 对象可以包含**任何组件选项**；
   - 当组件使用 Mixin 对象时，所有**Mixin 对象的选项将被 混合 进入该组件本身的选项中**；
 
-### Mixin 的基本使用
+#### Mixin 的基本使用
 
 ```js
 // mixins/demoMixin.js
@@ -35,7 +36,7 @@ export const demoMixin = {
 };
 ```
 
-```vue {9,11}
+```vue
 <template>
   <div>
     <h2>{{ title }}</h2>
@@ -55,7 +56,7 @@ export default {
 
 ![](/frontEnd/frame/vue/63.png)
 
-### Mixin 的合并规则
+#### Mixin 的合并规则
 
 - 如果 Mixin 对象中的选项和组件对象中的选项发生了冲突，那么 Vue 会如何操作呢？
   - 这里**分成不同的情况**来进行处理；
@@ -64,7 +65,8 @@ export default {
   - 如果 data 返回值对象的属性发生了冲突，那么会**保留组件自身的数据**；
 - 情况二：如何生命周期钩子函数
   - 生命周期的钩子函数**会被合并到数组**中，都会被调用；
-- 情况三：值为对象的选项，例如 methods、components 和 directives，将被合并为同一个对象。
+  - mixin 对象的钩子将在组件自身钩子**之前**调用。
+- 情况三：值为对象的选项，例如**methods**、**components** 和 **directives**，将被合并为同一个对象。
   - 比如都有**methods 选项**，并且都定义了方法，那么**它们都会生效**；
   - 但是如果**对象的 key 相同**，那么**会取组件对象的键值对**；
 
@@ -120,7 +122,7 @@ export default {
 
 ![](/frontEnd/frame/vue/64.png)
 
-### 全局混入 Mixin
+#### 全局混入 Mixin
 
 - 如果组件中的某些选项，是所有的组件都需要拥有的，那么这个时候我们可以使用**全局的 mixin**：
   - 全局的 Mixin 可以使用 **应用 app 的方法 mixin** 来完成注册；
@@ -198,7 +200,7 @@ export default {
 
 ## Composition API
 
-### Options API 的弊端
+#### Options API 的弊端
 
 - 在 Vue2 中，我们编写组件的方式是 Options API：
   - Options API 的一大特点就是在**对应的属性**中编写**对应的功能模块**；
@@ -211,7 +213,7 @@ export default {
   - 这种**碎片化的代码**使用**理解和维护这个复杂的组件**变得异常困难，并且**隐藏了潜在的逻辑问题**；
   - 并且当我们**处理单个逻辑关注点**时，需要不断的**跳到相应的代码**块中；
 
-### 大组件的逻辑分散
+#### 大组件的逻辑分散
 
 ![](/frontEnd/frame/vue/67.png)
 
@@ -235,7 +237,7 @@ export default {
   - 函数的参数
   - 函数的返回值
 
-### setup 函数的参数
+#### setup 函数的参数
 
 - 我们先来研究一个 setup 函数的参数，它主要有两个参数：
   - 第一个参数：**props**
@@ -251,7 +253,7 @@ export default {
   - **slots**：父组件传递过来的插槽（这个在以渲染函数返回时会有作用，后面会讲到）；
   - **emit**：当我们组件内部需要发出事件时会用到 emit（因为我们不能访问 this，所以不可以通过 this.\$emit 发出事件）
 
-### setup 函数的返回值
+#### setup 函数的返回值
 
 - setup 既然是一个函数，那么它也可以有返回值，它的返回值用来做什么呢？
   - setup 的返回值可以在**模板 template 中被使用**；
@@ -266,7 +268,7 @@ export default {
 
 ![](/frontEnd/frame/vue/69.png)
 
-### setup 不可以使用 this
+#### setup 不可以使用 this
 
 - 官方关于 this 有这样一段描述
   - 表达的含义是 **this 并没有指向当前组件实例**；
@@ -281,7 +283,7 @@ export default {
 
 - 如果想为在 setup 中定义的数据提供响应式的特性，那么我们可以使用 reactive 的函数：
 
-```vue{3,10,13-15}
+```vue
 <template>
   <div>
     <h2>当前计数:{{ state.counter }}</h2>
@@ -321,3 +323,74 @@ export default {
   - 这是因为当我们**使用 reactive 函数处理我们的数据之后**，数据**再次被使用**时就会**进行依赖收集**；
   - 当**数据发生改变**时，所有**收集到的依赖**都是**进行对应的响应式操作**（比如更新界面）；
   - 事实上，我们编写的**data 选项**，也是在内部**交给了 reactive 函数**将其编程响应式对象的；
+
+### Ref API
+
+- reactive API 对传入的类型是有限制的，它要求我们必须传入的是一个对象或者数组类型：
+  - 如果我们传入一个**基本数据类型（String、Number、Boolean）会报一个警告**；
+- 这个时候 Vue3 给我们提供了另外一个 API：ref API
+  - ref 会返回一个**可变的响应式对象**，该对象作为一个 **响应式的引用** 维护着它**内部的值**，这就是**ref 名称的来源**；
+  - 它内部的值是**在 ref 的 value 属性**中被维护的；
+
+```js
+let counter = ref(0);
+```
+
+- 这里有两个注意事项：
+- 在**模板中引入 ref 的值**时，Vue 会**自动帮助我们进行解包**操作，所以我们并**不需要在模板中通过 ref.value** 的方式
+  来使用；
+- 但是在 **setup 函数内部**，它依然是一个 **ref 引用**， 所以对其进行操作时，我们依然需要**使用 ref.value 的方式**；
+
+#### Ref 自动解包
+
+- 模板中的解包是浅层的解包，如果我们的代码是下面的方式：
+
+```html
+<h2>当前计数:{{ info.counter }}</h2>
+```
+
+```js
+const info = {
+  counter,
+};
+```
+
+![](/frontEnd/frame/vue/71.png)
+
+如果我们将 ref 放到一个 reactive 的属性当中，那么在模板中使用时，它会自动解包：
+
+```html
+<h2>当前计数:{{ reactiveInfo.counter }}</h2>
+```
+
+```js
+const reactiveInfo = reactive({
+  counter,
+});
+```
+
+### readonly
+
+#### 认识 readonly
+
+- 我们通过 reactive 或者 ref 可以获取到一个响应式的对象，但是某些情况下，我们传入给其他地方（组件）的这个
+  响应式对象希望在另外一个地方（组件）被使用，但是不能被修改，这个时候如何防止这种情况的出现呢？
+  - Vue3 为我们提供了 **readonly 的方法**；
+  - **readonly 会返回原生对象的只读代理**（也就是它依然是一个 Proxy，这是一个 **proxy 的 set 方法被劫持**，并且不
+    能对其进行修改）；
+- 在开发中常见的 readonly 方法会传入三个类型的参数：
+  - **普通对象**；
+  - **reactive 返回的对象**；
+  - **ref 对象**；
+
+#### readonly 的使用
+
+- 在 readonly 的使用过程中，有如下规则：
+  - readonly**返回的对象都是不允许修改**的；
+  - 但是经过 readonly 处理的**原来的对象**是允许被修改的；
+    - 比如 const info = readonly(obj)，**info 对象是不允许被修改**的；
+    - 当**obj 被修改**时，**readonly 返回的 info 对象**也会被修改；
+    - 但是我们**不能去修改 readonly 返回的对象 info**；
+  - 其实本质上就是**readonly 返回的对象的 setter 方法**被劫持了而已；
+
+![](/frontEnd/frame/vue/72.png)

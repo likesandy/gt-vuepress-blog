@@ -4,12 +4,6 @@ module.exports = [
   {
     text: '前端', items: [
       {
-        text: '三剑客', items: [
-          { text: 'HTML', link: '/frontEnd/basics/HTML/' },
-          { text: 'CSS', link: '/frontEnd/basics/CSS/' },
-          { text: 'JavaScript', link: '/frontEnd/basics/JavaScript/' }]
-      },
-      {
         text: 'JS框架', items: [
           { text: 'Vue', link: '/frontEnd/frame/vue/' },
           { text: 'React', link: '/frontEnd/frame/react/' }
@@ -19,21 +13,11 @@ module.exports = [
         text: '打包工具', items: [
           { text: 'Webpack', link: '/frontEnd/pack/webpack/' },
           { text: 'Vite', link: '/frontEnd/pack/vite/' }
-        ]
-      },
-    ]
-  },
-  {
-    text: '小程序', items: [
-      {
-        text: '原生', items: [
-          { text: '微信小程序', link: '/applet/native/' }
-        ]
+        ],
       },
       {
-        text: '跨端', items: [
-          { text: 'uni-app', link: '/applet/span/uni-app/' },
-          { text: 'Taro', link: '/applet/span/Taro/' }
+        text: '小程序', items: [
+          { text: '原生', link: '/applet/native/' }
         ]
       }
     ]

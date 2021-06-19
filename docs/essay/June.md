@@ -370,3 +370,27 @@ window 厉害,但是我喜欢 mac
 360 行行出状元
 
 :speech_balloon: [如何看待郑州大学学生不顾父亲「威胁」，坚持从程序员改行当服务员，并说：干这个不丢人？](https://www.zhihu.com/question/465534726)
+
+## 6/19
+
+### 衡水中学
+
+卷王
+
+:tv: [深扒衡水中学 5 宗罪：硬生生把教育，玩成了资本游戏【洞察社会系列 32】](https://www.bilibili.com/video/BV1yV41147MR?t=160)
+
+### 励志
+
+身体可以站不稳，做人不能不稳当
+
+:tv: [砸坏了脑袋，46 岁大哥出门被骂像“丧尸”：那我也得出来挣钱](https://www.bilibili.com/video/BV1ih411Y7KD)
+
+### 王冰冰
+
+笑死了
+
+:tv: [王冰冰嘴瓢失误合集，今天又是贷款上班的一天呢！！！](https://www.bilibili.com/video/BV12h411e7kY)
+
+### JavaScript 笔记
+
+今天写了一点 JavaScript 基础的笔记,感觉用处不是很大就删掉了,我还是觉得基础的东西查文档真的很不错,前端基础推荐[MDN](https://developer.mozilla.org/zh-CN/docs/Web)就很不错,MDN 讲的很详细,感觉有些东西比书讲的都还好

@@ -48,7 +48,7 @@ export default {
   - 动态组件
   - 组件根节点
 
-```vue {5-7,27-38}
+```vue
 <template>
   <div>
     <button @click="handover">切换</button>
@@ -731,4 +731,3 @@ export default {
 ```
 
 ![](/frontEnd/frame/vue/62.gif)
-
