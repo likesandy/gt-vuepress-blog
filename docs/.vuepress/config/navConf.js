@@ -4,6 +4,13 @@ module.exports = [
   {
     text: '前端', items: [
       {
+        text: '前端基础', items: [
+          { text: 'HTML', link: '/frontEnd/basics/html/' },
+          { text: 'CSS', link: '/frontEnd/basics/css/' },
+          { text: 'JavaScript', link: '/frontEnd/basics/javascript/' }
+        ]
+      },
+      {
         text: 'JS框架', items: [
           { text: 'Vue', link: '/frontEnd/frame/vue/' },
           { text: 'React', link: '/frontEnd/frame/react/' }

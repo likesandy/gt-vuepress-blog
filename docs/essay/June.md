@@ -391,6 +391,16 @@ window 厉害,但是我喜欢 mac
 
 :tv: [王冰冰嘴瓢失误合集，今天又是贷款上班的一天呢！！！](https://www.bilibili.com/video/BV12h411e7kY)
 
-### JavaScript 笔记
+## 6/20
 
-今天写了一点 JavaScript 基础的笔记,感觉用处不是很大就删掉了,我还是觉得基础的东西查文档真的很不错,前端基础推荐[MDN](https://developer.mozilla.org/zh-CN/docs/Web)就很不错,MDN 讲的很详细,感觉有些东西比书讲的都还好
+### 父亲节
+
+祝天下父亲们节日快乐,你们都辛苦了
+
+### NBA
+
+篮网 vs 雄鹿决胜局
+
+记得小时候的时候中午吃饭就在茶几那边吃饭,因为那里有电视,然后都一起看 nba 或者新闻联播
+
+[比赛直播](http://jrszb.com/)
