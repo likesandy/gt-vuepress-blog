@@ -394,3 +394,443 @@ const reactiveInfo = reactive({
   - 其实本质上就是**readonly 返回的对象的 setter 方法**被劫持了而已；
 
 ![](/frontEnd/frame/vue/72.png)
+
+### Reactive 判断的 API
+
+- isProxy
+  - 检查对象是否**是由 reactive 或 readonly 创建的 proxy**。
+- isReactive
+  - 检查对象**是否是由 reactive 创建的响应式代理**：
+  - 如果**该代理是 readonly 建的**，但**包裹了由 reactive 创建的另一个代理**，它也会返回 true；
+- isReadonly
+  - 检查对象**是否是由 readonly 创建的只读代理**。
+- toRaw
+  - 返回 **reactive 或 readonly 代理的原始对象**（不建议保留对原始对象的持久引用。请谨慎使用）。
+- shallowReactive
+  - 创建一个响应式代理，它跟踪其自身 property 的响应性，但**不执行嵌套对象的深层响应式转换**(深层还是原生对象)。
+- shallowReadonly
+  - 创建一个 proxy，使其自身的 property 为只读，但**不执行嵌套对象的深度只读转换**（深层还是可读、可写的）。
+
+:::tip
+这里就不做举例了,具体的实践开发的时候查一下文档就可以了
+:::
+
+### toRefs
+
+如果我们使用 ES6 的解构语法，对 reactive 返回的对象进行解构获取值，那么之后无论是修改结构后的变量，还是修改 reactive
+返回的 state 对象，**数据都不再是响应式**的：
+
+```js
+let { name, age } = reactive({ name: "tao", age: 19 });
+```
+
+- 那么有没有办法让我们解构出来的属性是响应式的呢？
+  - Vue 为我们提供了一个**toRefs 的函数**，可以将**reactive 返回的对象中的属性都转成 ref**；
+  - 那么我们再次进行结构出来的 **name 和 age 本身都是 ref 的**；
+
+```js
+const info = reactive({
+  name: "tao",
+  age: 19,
+});
+let { name, age } = toRefs(info);
+```
+
+这种做法相当于已经在 info.name 和 info.age 和 ref.value 之间建立了 **链接**，**任何一个修改都会引起另外一个变化**；
+
+所以我们通过 age.value 和 info.age 都可以修改 age 的值
+
+```js
+const changeAge = () => {
+  // age.value++;
+  info.age++;
+};
+```
+
+解构出了 name 和 age,如果我们想要使用 name 和 age,肯定要对其进行返回,这个在前面已经说过了,在使用了时候也是一样的,不需要使用 name.value 和 age.value 的形式来使用,因为 vue 自动帮我们进行了解包的操作,所以在 template 模板中可以直接使用 name,age 来进行使用
+
+下面还有一种更加**优雅的写法**(我自己认为比较优雅)
+
+```js
+let { name, age } = toRefs(reactive({ name: "tao", age: 19 }));
+```
+
+### toRef
+
+如果我们只希望转换一个 reactive 对象中的属性为 ref, 那么可以使用 toRef 的方法：
+
+```js
+const info = reactive({ name: "tao", age: 19 });
+let age = toRef(info, "age");
+```
+
+toRef 有两个参数,第一个参数是源响应对象,第二个参数是需要转换的属性
+
+当然也有优雅写法
+
+```js
+let age = toRef(reactive({ name: "tao", age: 19 }), "age");
+```
+
+#### ref 其他的 API
+
+- unref
+  - 如果我们想要获取一个 ref 引用中的 value，那么也可以通过 unref 方法：
+  - **如果参数是一个 ref**，则**返回内部值，否则返回参数本身**；
+  - 这是 **val = isRef(val) ? val.value : val** 的语法糖函数；
+- isRef
+  - 判断值**是否是一个 ref 对象**
+- shallowRef
+  - 创建一个**浅层的 ref 对象**；
+- triggerRef
+  - **手动触发和 shallowRef 相关联的副作用**：
+
+很多 API 都不是很常用,具体开发的时候查一下文档使用就可以了
+
+这里我就简单说一下 shallowRef 和 triggerRef
+
+```vue
+<template>
+  <div>
+    <div>{{ info }}</div>
+    <button @click="changeInfo">改变info</button>
+  </div>
+</template>
+
+<script>
+import { ref } from "vue";
+export default {
+  setup() {
+    const info = ref({ name: "tao" });
+    const changeInfo = () => {
+      info.value.name = "sandy";
+    };
+    return {
+      info,
+      changeInfo,
+    };
+  },
+};
+</script>
+```
+
+默认情况下 ref 是可以深层响应的
+
+shallowRef 只会创建一个浅层的 ref 对象,不会对深层进行响应式
+
+```js
+const info = shallowRef({ name: "tao" });
+const changeInfo = () => {
+  info.value.name = "sandy"; // 无法响应式
+};
+```
+
+triggerRef: 手动触发和 shallowRef 相关联的副作用
+
+触发 shallowRef 的副作用,触发以后深层也会有响应式
+
+```js
+const changeInfo = () => {
+  info.value.name = "sandy";
+  triggerRef(info);
+};
+```
+
+#### customRef
+
+- 创建一个自定义的 ref，并对其依赖项跟踪和更新触发进行显示控制：
+  - 它需要一个工厂函数，该函数接受 track 和 trigger 函数作为参数；
+  - 并且应该返回一个带有 get 和 set 的对象；
+- 这里我们使用一个的案例：
+  - 对双向绑定的属性进行 debounce(节流)的操作；
+
+```js
+import { customRef } from "vue";
+
+export default function(value, delay = 1000) {
+  let timer = null;
+  return customRef((track, trigger) => {
+    return {
+      get() {
+        track();
+        return value;
+      },
+      set(newValue) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          value = newValue;
+          trigger();
+        }, delay);
+      },
+    };
+  });
+}
+```
+
+```vue
+<template>
+  <div>
+    <input v-model="title" />
+    <h2>{{ title }}</h2>
+  </div>
+</template>
+
+<script>
+import { ref } from "vue";
+import debounceRef from "./hook/useDebounceRef";
+export default {
+  setup() {
+    // const title = ref("Hello World");
+    const title = debounceRef("Hello World");
+    return {
+      title,
+    };
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+![](/frontEnd/frame/vue/73.gif)
+
+### computed
+
+- 在前面我们讲解过计算属性 computed：当我们的某些属性是依赖其他状态时，我们可以使用计算属性来处理
+  - 在前面的 Options API 中，我们是使用 computed 选项来完成的；
+  - 在 Composition API 中，我们可以在 setup 函数中使用 computed 方法来编写一个计算属性；
+- 如何使用 computed 呢？
+  - 接收一个 getter 函数，并为 getter 函数返回的值，返回一个不变的 ref 对象；
+  - 接收一个具有 get 和 set 的对象，返回一个可变的（可读写）ref 对象；
+
+```vue
+<template>
+  <div>
+    <h2>{{ fullName }}</h2>
+    <button @click="changeName">切换name</button>
+  </div>
+</template>
+
+<script>
+import { ref, computed } from "vue";
+export default {
+  setup() {
+    let firstName = ref("coder");
+    let lastName = ref("tao");
+    let fullName = firstName.value + "" + lastName.value;
+    const changeName = () => {
+      fullName = "sandy";
+      console.log(fullName);
+    };
+    return {
+      fullName,
+      changeName,
+    };
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+如果我们使用传统的 ref 来处理值的时候是没有响应式的
+
+![](/frontEnd/frame/vue/74.png)
+
+这个时候可能会想到用 computed,在 setup 中是这样使用 computed 的
+
+```js
+// 用法一: 传一个getter函数
+// const fullName = computed(() => firstName.value + "" + lastName.value);
+// 用法二: 传一个对象,对象包含getter和setter
+const fullName = computed({
+  get() {
+    return firstName.value + "" + lastName.value;
+  },
+  set(newValue) {
+    const names = newValue.split(" ");
+    firstName.value = names[0];
+    lastName.value = names[1];
+  },
+});
+const changeName = () => {
+  fullName.value = "san dy";
+};
+```
+
+![](/frontEnd/frame/vue/75.gif)
+
+### watchEffect
+
+#### 侦听数据的变化
+
+- 在前面的 Options API 中，我们可以通过 watch 选项来侦听 data 或者 props 的数据变化，当数据变化时执行某一些
+  操作。
+- 在 Composition API 中，我们可以使用 watchEffect 和 watch 来完成响应式数据的侦听；
+  - watch 需要手动指定侦听的数据源；
+  - watchEffect 用于**自动收集**响应式数据的依赖；
+
+#### watchEffect
+
+- 当侦听到某些响应式数据变化时，我们希望执行某些操作，这个时候可以使用 watchEffect。
+
+- 我们来看一个案例：
+  - 首先，watchEffect 传入的函数会被**立即执行**一次，并且在执行的过程中会**收集依赖**；
+  - 其次，只有收集的**依赖发生变化**时，watchEffect 传入的函数才会再次执行；
+
+```vue
+<template>
+  <div>
+    <h2>{{ name }}-{{ age }}</h2>
+    <button @click="changeName">改变name</button>
+    <button @click="changeAge">改变age</button>
+  </div>
+</template>
+
+<script>
+import { ref, watchEffect } from "vue";
+export default {
+  setup() {
+    const name = ref("tao");
+    const age = ref(19);
+
+    const changeName = () => (name.value = "sandy");
+    const changeAge = () => age.value++;
+
+    watchEffect(() => {
+      console.log("name", name.value);
+    });
+    return {
+      name,
+      age,
+      changeName,
+      changeAge,
+    };
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+![](/frontEnd/frame/vue/76.gif)
+
+#### watchEffect 的停止侦听
+
+- 如果在发生某些情况下，我们希望停止侦听，这个时候我们可以获取 watchEffect 的返回值函数，调用该函数即可。
+- 比如在上面的案例中，我们 age 达到 30 的时候就停止侦听：
+
+```js
+const changeAge = () => {
+  age.value++;
+  if (age.value > 30) {
+    stop();
+  }
+};
+
+const stop = watchEffect(() => {
+  console.log("name:", name.value, "age:", age.value);
+});
+```
+
+![](/frontEnd/frame/vue/77.gif)
+
+#### watchEffect 清除副作用
+
+- 什么是清除副作用呢？
+  - 比如在开发中我们需要在侦听函数中执行网络请求，但是在网络请求还没有达到的时候，我们停止了侦听器，
+    或者侦听器侦听函数被再次执行了。
+  - 那么上一次的网络请求应该被取消掉，这个时候我们就可以清除上一次的副作用；
+- 在我们给 watchEffect 传入的函数被回调时，其实可以获取到一个参数：onInvalidate
+  - 当**副作用即将重新执行** 或者 **侦听器被停止** 时会执行该函数传入的回调函数；
+  - 我们可以在传入的回调函数中，执行一些清楚工作；
+
+```js
+const stop = watchEffect((onInvalidate) => {
+  // 根据name和age两个变量的监听发送网络请求
+  // 如果我们不清除副作用的话
+  // 比如我们刚进来发送网络请求，age发送了变化，就会又发送一次网络请求，然后不断发生变化，就会一直发送网络请求
+  // 那么就可能发送很多次的网络请求，所以要清除副作用（有点防抖的那个意思了)
+
+  // 通过定时器模拟发送网络请求
+  const timer = setTimeout(() => {
+    console.log("网络请求成功");
+  }, 2000);
+  onInvalidate(() => {
+    // 在这个函数中清除副作用
+    clearTimeout(timer);
+    console.log("清除上一次的网络请求");
+  });
+
+  console.log("name:", name.value, "age:", age.value);
+});
+```
+
+![](/frontEnd/frame/vue/78.gif)
+
+#### setup 中使用 ref
+
+- 在讲解 watchEffect 执行时机之前，我们先补充一个知识：在 setup 中如何使用 ref 或者元素或者组件？
+  - 其实非常简单，我们只需要定义一个 ref 对象，绑定到元素或者组件的 ref 属性上即可；
+
+```vue
+<template>
+  <div>
+    <h2 ref="title">Hello World</h2>
+  </div>
+</template>
+
+<script>
+import { ref, watchEffect } from "vue";
+export default {
+  setup() {
+    const title = ref(null);
+
+    // setup函数是在DOM挂载以前就已经完成了
+    // 具体后面讲生命周期会说到
+    // 所以立即执行第一次打印的就是null
+    // 因为我DOM还没挂载出来，DOM的元素就不会赋值到value里面，所以第一次打印就是一个null
+    watchEffect(() => {
+      console.log(title.value);
+    });
+    return {
+      title,
+    };
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+#### watchEffect 的执行时机
+
+- 默认情况下，组件的更新会在副作用函数执行之前：
+  - 如果我们希望在副作用函数中获取到元素，是否可行呢？
+
+* 我们会发现打印结果打印了两次：
+  - 这是因为 setup 函数在执行时就会立即执行传入的副作用函数，这个时候 DOM 并没有挂载，所以打印为 null；
+  - 而当 DOM 挂载时，会给 title 的 ref 对象赋值新的值，副作用函数会再次执行，打印出来对应的元素；
+
+![](/frontEnd/frame/vue/79.png)
+
+##### 调整 watchEffect 的执行时机
+
+- 如果我们希望在第一次的时候就打印出来对应的元素呢？
+  - 这个时候我们需要改变副作用函数的执行时机；
+  - 它的默认值是 pre，它会在元素 挂载 或者 更新 之前执行；
+  - 所以我们会先打印出来一个空的，当依赖的 title 发生改变时，就会再次执行一次，打印出元素；
+- 我们可以设置副作用函数的执行时机：
+
+```js
+watchEffect(
+  () => {
+    console.log(title.value);
+  },
+  {
+    flush: "post",
+  }
+);
+```
+
+flush 选项还接受 sync，这将强制效果始终同步触发。然而，这是**低效的**，应该很少需要。
