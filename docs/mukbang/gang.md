@@ -13,3 +13,9 @@ title: 田野上的繁华
 ![](/mukbang/4.jpg)
 
 :tv:[路边摊 30 元能买啥，炸鸡汉堡鸡蛋灌饼，这一顿瓷实](https://www.bilibili.com/video/BV1DU4y1V7Df)
+
+## 素食自助餐
+
+![](/mukbang/13.jpg)
+
+:tv:[15 元素食自助餐，全场菜品不限量，家常味道真不错](https://www.bilibili.com/video/BV1kf4y1t7CY)

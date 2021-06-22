@@ -78,7 +78,7 @@ Array.from() 方法从一个类似数组或可迭代对象**创建一个新的**
 **语法**
 
 ```ts
-Array.from(iterable: Iterable<any> | ArrayLike<any>, mapfn: (v: any, k: number) => number, thisArg?: any): any[]
+from(iterable: Iterable<any> | ArrayLike<any>, mapfn: (v: any, k: number) => number, thisArg?: any): any[]
 ```
 
 **参数**
@@ -401,3 +401,113 @@ for (const [idx, element] of a.entries()) {
 ```
 
 ## 复制和填充方法
+
+### Array.prototype.fill()
+
+fill() 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。
+
+**语法**
+
+```ts
+fill(value: number, start?: number, end?: number): this
+```
+
+**参数**
+
+- value
+  - 用来填充数组元素的值
+- start
+  - 起始索引，默认值为 0
+- end
+  - 终止索引，默认值为 **this.length**
+
+**返回值**
+
+- 修改后的数组
+
+**描述**
+如果 start 是个负数, 则开始索引会被自动计算成为 length+start, 其中 length 是 this 对象的 length 属性值。如果 end 是个负数, 则结束索引会被自动计算成为 length+end。
+
+fill 方法故意被设计成通用方法, 该方法不要求 this 是数组对象。
+
+fill 方法是个可变方法, 它会改变调用它的 this 对象本身, 然后返回它, 而并不是返回一个副本。
+
+当一个对象被传递给 fill 方法的时候, 填充数组的是这个对象的引用。
+
+```js
+const zeroes = [0, 0, 0, 0, 0];
+// 用 5 填充整个数组
+zeroes.fill(5);
+console.log(zeroes); // [5, 5, 5, 5, 5]
+zeroes.fill(0); // 重置
+// 用 6 填充索引大于等于 3 的元素
+zeroes.fill(6, 3);
+console.log(zeroes); // [0, 0, 0, 6, 6]
+zeroes.fill(0); // 重置
+// 用 7 填充索引大于等于 1 且小于 3 的元素
+zeroes.fill(7, 1, 3);
+console.log(zeroes); // [0, 7, 7, 0, 0];
+zeroes.fill(0); // 重置
+// 用 8 填充索引大于等于 1 且小于 4 的元素
+// (-4 + zeroes.length = 1)
+// (-1 + zeroes.length = 4)
+zeroes.fill(8, -4, -1);
+console.log(zeroes); // [0, 8, 8, 8, 0];
+```
+
+如果 start 是个负数, 则开始索引会被自动计算成为 length+start, 其中 length 是 this 对象的 length 属性值。如果 end 是个负数, 则结束索引会被自动计算成为 length+end。
+
+fill()静默忽略超出数组边界、零长度及方向相反的索引范围：
+
+```js
+const zeroes = [0, 0, 0, 0, 0];
+// 索引过低，忽略
+zeroes.fill(1, -10, -6);
+console.log(zeroes); // [0, 0, 0, 0, 0]
+// 索引过高，忽略
+zeroes.fill(1, 10, 15);
+console.log(zeroes); // [0, 0, 0, 0, 0]
+// 索引反向，忽略
+zeroes.fill(2, 4, 2);
+console.log(zeroes); // [0, 0, 0, 0, 0]
+// 索引部分可用，填充可用部分
+zeroes.fill(4, 3, 10);
+console.log(zeroes); // [0, 0, 0, 4, 4]
+```
+
+fill 方法故意被设计成通用方法, 该方法不要求 this 是数组对象。
+
+当一个对象被传递给 fill 方法的时候, 填充数组的是这个对象的引用。
+
+```js
+let arr = Array(3).fill({}); // [{}, {}, {}];
+// 需要注意如果fill的参数为引用类型，会导致都执行都一个引用类型
+// 如 arr[0] === arr[1] 为true
+arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
+```
+
+### Array.prototype.copyWithin()
+
+copyWithin() 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，不会改变原数组的长度。
+
+**语法**
+
+```ts
+copyWithin(target: number, start: number, end?: number): this
+```
+
+**参数**
+
+- target
+  - 0 为基底的索引，复制序列到该位置。如果是负数，target 将从末尾开始计算。
+  - 如果 target 大于等于 arr.length，将会不发生拷贝。如果 target 在 start 之后，复制的序列将被修改以符合 arr.length。
+- start
+  - 0 为基底的索引，开始复制元素的起始位置。如果是负数，start 将从末尾开始计算。
+  - 如果 start 被忽略，copyWithin 将会从 0 开始复制。
+- end
+  - 0 为基底的索引，开始复制元素的结束位置。copyWithin 将会拷贝到该位置，但不包括 end 这个位置的元素。如果是负数， end 将从末尾开始计算。
+  - 如果 end 被忽略，copyWithin 方法将会一直复制至数组结尾（默认为 arr.length）。
+
+**返回值**
+
+- 改变后的数组。
