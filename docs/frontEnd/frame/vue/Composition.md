@@ -834,3 +834,120 @@ watchEffect(
 ```
 
 flush 选项还接受 sync，这将强制效果始终同步触发。然而，这是**低效的**，应该很少需要。
+
+### Watch
+
+- watch 的 API 完全等同于组件 watch 选项的 Property：
+  - watch 需要侦听特定的数据源，并在回调函数中执行副作用；
+  - 默认情况下它是惰性的，只有当被侦听的源发生变化时才会执行回调；
+- 与 watchEffect 的比较，watch 允许我们：
+  - 懒执行副作用（第一次不会直接执行）；
+  - 更具体的说明当哪些状态发生变化时，触发侦听器的执行；
+  - 访问侦听状态变化前后的值；
+
+#### 侦听单个数据源
+
+- watch 侦听函数的数据源有两种类型：
+  - 一个 **getter 函数**：但是该 getter 函数必须引用可响应式的对象（比如 reactive 或者 ref）；
+  - 直接写入一个**可响应式的对象**，reactive 或者 ref（比较常用的是 ref）；
+
+```vue
+<template>
+  <div>
+    <h2>{{ info.name }}-{{ info.age }}</h2>
+    <h2>{{ age }}</h2>
+    <button @click="changeData">修改数据</button>
+  </div>
+</template>
+
+<script>
+import { ref, reactive, watch } from "vue";
+export default {
+  setup() {
+    const info = reactive({ name: "tao", age: 19 });
+
+    // 1.传入一个getter函数
+    // watch(
+    //   () => info.age,
+    //   (newValue, oldValue) => {
+    //     console.log("newValue:", newValue, "oldValue:", oldValue);
+    //   }
+    // );
+
+    // 2.传入一个可响应式对象: reactive对象/ref对象
+    // 情况一: reactive对象获取到的newValue和oldVlaue本身就是reactive对象
+    // watch(info, (newValue, oldValue) => {
+    //   console.log("newValue:", newValue, "oldValue:", oldValue);
+    // });
+    // 如果我们希望newValue和oldValue是一个普通的对象
+    // watch(
+    //   () => {
+    //     return { ...info };
+    //   },
+    //   (newValue, oldValue) => {
+    //     console.log("newValue:", newValue, "oldValue:", oldValue);
+    //   }
+    // );
+    // 情况二: ref对象获取到的newValue和oldValue是value值的本身
+    let age = ref(19);
+    watch(age, (newValue, oldValue) => {
+      console.log("newValue:", newValue, "oldValue:", oldValue);
+    });
+    const changeData = () => {
+      // info.age++;
+      age.value++;
+    };
+
+    return {
+      info,
+      age,
+      changeData,
+    };
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+##### 侦听多个数据源
+
+侦听器还可以使用数组同时侦听多个源
+
+```js
+watch([info, age], (newValue, oldValue) => {
+  console.log("newValue:", newValue, "oldValue:", oldValue);
+});
+```
+
+#### 侦听响应式对象
+
+如果我们希望侦听一个数组或者对象，那么可以使用一个 getter 函数，并且对可响应对象进行解构：
+
+```js
+watch([() => ({ ...info }), age], ([newInfo, newAge], [oldInfo, oldAge]) => {
+  console.log(newInfo, newAge, oldInfo, oldAge);
+});
+```
+
+#### watch 的选项
+
+- 如果我们希望侦听一个深层的侦听，那么依然需要设置 deep 为 true：
+  - 也可以传入 immediate 立即执行；
+
+如果我们使用 reactive 对象来进行监听的话,默认情况下是可以深度监听的,因为在源码已经添加了 deep 为 true
+
+但是如果我们是用普通的对象来想要进行深度监听的话,这个时候就需要设置额外的选项了
+
+```js
+watch(
+  () => ({ ...info }),
+  (newValue, oldValue) => {
+    console.log("newValue:", newValue, "oldValue:", oldValue);
+  },
+  {
+    deep: true,
+    immediate: true,
+  }
+);
+```
