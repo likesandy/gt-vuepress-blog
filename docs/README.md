@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /sandy.jpg
-actionText: Hello CoderTao
+actionText: Hello World
 heroText: codertao
 actionLink: /about/
 ---

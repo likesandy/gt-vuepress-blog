@@ -6,16 +6,6 @@ title: 首页
 
 本章关于 javascript 的知识,深入浅出,循序渐进
 
-## 参考资料
-
-- [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
-
-- [javascript 高级程序设计第 4 版](https://pan.baidu.com/s/1HcZ5iuTCVFnxbv6q6Es9Fg)
-
-:::tip
-[网盘密码](/movies)
-::::
-
 ## 小技巧
 
 学习 javascriptAPI 有很多小技巧,这里就简单介绍编辑器的小技巧
@@ -41,3 +31,5 @@ title: 首页
 ![](/frontEnd/basics/3.png)
 
 ![](/frontEnd/basics/4.png)
+
+**敬请期待后续更新**

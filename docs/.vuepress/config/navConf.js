@@ -29,23 +29,18 @@ module.exports = [
       }
     ]
   },
-  { text: '数据结构', link: '/dataStructure/' },
+  { text: '算法', link: '/dataStructure/' },
   { text: '优文转载', link: '/share/', },
   { text: '随笔', link: '/essay/' },
   {
-    text: '工具箱', items: [
-      {
-        text: '在线编辑', items: [
-          { text: '图片压缩', link: 'https://tinypng.com/' }
-        ]
-      },
-      {
-        text: '日常分享',
-        items: [
-          { text: '吃播集锦', link: '/mukbang/' },
-          { text: '电影分享', link: '/movies/' },
-        ]
-      }
+    text: '书籍', items: [
+      { text: 'JavaScript高级程序设计', link: '/books/ruby/' },
+    ]
+  },
+  {
+    text: '更多', items: [
+      { text: '吃播集锦', link: '/mukbang/' },
+      { text: '电影分享', link: '/movies/' },
     ]
   },
   { text: 'Github', link: 'https://github.com/likesandy', },

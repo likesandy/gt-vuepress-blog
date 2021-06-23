@@ -511,3 +511,211 @@ copyWithin(target: number, start: number, end?: number): this
 **返回值**
 
 - 改变后的数组。
+
+**描述**
+
+与 fill()不同，copyWithin()会按照指定范围浅复制数组中的部分内容，然后将它们插入到指
+定索引开始的位置。开始索引和结束索引则与 fill()使用同样的计算方法
+
+参数 target、start 和 end 必须为整数。
+
+如果 start 为负，则其指定的索引位置等同于 length+start，length 为数组的长度。end 也是如此。
+
+copyWithin 方法不要求其 this 值必须是一个数组对象；除此之外，copyWithin 是一个可变方法，它可以改变 this 对象本身，并且返回它，而不仅仅是它的拷贝。
+
+```js
+const array1 = ["a", "b", "c", "d", "e"];
+console.log(array1.copyWithin(0, 3, 4)); // ["d", "b", "c", "d", "e"]
+console.log(array1.copyWithin(1, 3)); // ["d", "d", "e", "d", "e"]
+console.log(array1.copyWithin(3)); // ['a','b','c','a','b'];
+console.log(array1.copyWithin(-2, -4, -3)); // ['a','b','c','b','e'];
+```
+
+## 转换方法
+
+### Array.prototype.toString()
+
+toString() 返回一个字符串，表示指定的数组及其元素。
+
+**语法**
+
+```ts
+Array.toString(): string
+```
+
+**返回值**
+
+- 一个表示指定的数组及其元素的字符串。
+
+**描述**
+
+Array 对象覆盖了 Object 的 toString 方法。对于数组对象，toString 方法连接数组并返回一个字符串，其中包含用逗号分隔的每个数组元素。
+
+当一个数组被作为文本值或者进行字符串连接操作时，将会自动调用其 toString 方法。
+
+前面提到过，所有对象都有 toLocaleString()、toString()和 valueOf()方法。其中，valueOf()
+返回的还是数组本身。而 toString()返回由数组中每个值的等效字符串拼接而成的一个逗号分隔的
+字符串。也就是说，对数组的每个值都会调用其 toString()方法，以得到最终的字符串。
+
+```js
+let colors = ["red", "blue", "green"]; // 创建一个包含 3 个字符串的数组
+alert(colors.toString()); // red,blue,green
+alert(colors.valueOf()); // red,blue,green
+alert(colors); // red,blue,green
+```
+
+首先是被**显式调用**的 toString()和 valueOf()方法，它们分别返回了数组的字符串表示，即将所有字符串组合起来，以逗号分隔。最后一行代码直接用 alert()显示数组，因为 alert()期待字符
+串，所以会在后台调用数组的 toString()方法，从而得到跟前面一样的结果。
+
+### Array.prototype.toLocaleString()
+
+toLocaleString() 返回一个字符串表示数组中的元素。数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 ","）隔开。
+
+**语法**
+
+```ts
+Array.toLocaleString(locales?: string | array ,options?): string
+```
+
+**参数**
+
+- locales
+  - 带有 BCP 47 语言标记的字符串或字符串数组，关于 locales 参数的形式与解释，请看 Intl 页面。
+- options
+  - 一个可配置属性的对象，对于数字 Number.prototype.toLocaleString()，对于日期 Date.prototype.toLocaleString().
+
+**返回值**
+
+- 表示数组元素的字符串。
+
+**描述**
+数组中的元素将会使用各自的 toLocaleString 方法：
+
+- Object: Object.prototype.toLocaleString()
+- Number: Number.prototype.toLocaleString()
+- Date: Date.prototype.toLocaleString()
+
+```js
+let prices = ["￥7", 500, 8123, 12];
+prices.toLocaleString("ja-JP", { style: "currency", currency: "JPY" });
+
+// "￥7,￥500,￥8,123,￥12"
+```
+
+toLocaleString()方法也可能返回跟 toString()和 valueOf()相同的结果，但也不一定。在
+调用数组的 toLocaleString()方法时，会得到一个逗号分隔的数组值的字符串。它与另外两个方法
+唯一的区别是，为了得到最终的字符串，会调用数组每个值的 toLocaleString()方法，而不是
+toString()方法。
+
+```js
+let person1 = {
+  toLocaleString() {
+    return "Nikolaos";
+  },
+  toString() {
+    return "Nicholas";
+  },
+};
+let person2 = {
+  toLocaleString() {
+    return "Grigorios";
+  },
+  toString() {
+    return "Greg";
+  },
+};
+let people = [person1, person2];
+alert(people); // Nicholas,Greg
+alert(people.toString()); // Nicholas,Greg
+alert(people.toLocaleString()); // Nikolaos,Grigorios
+```
+
+这里定义了两个对象 person1 和 person2，它们都定义了 toString()和 toLocaleString()方
+法，而且返回不同的值。然后又创建了一个包含这两个对象的数组 people。在将数组传给 alert()时，
+输出的是"Nicholas,Greg"，这是因为会在数组每一项上调用 toString()方法（与下一行显式调用
+toString()方法结果一样）。而在调用数组的 toLocaleString()方法时，结果变成了"Nikolaos,
+Grigorios"，这是因为调用了数组每一项的 toLocaleString()方法。
+
+### Array.prototype.join()
+
+join() 方法将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个项目，那么将返回该项目而不使用分隔符。
+
+```ts
+Array.join(separator?: string): string
+```
+
+**参数**
+
+- separator
+  - 指定一个字符串来分隔数组的每个元素。如果需要，将分隔符转换为字符串。如果缺省该值，数组元素用逗号（,）分隔。如果 separator 是空字符串("")，则所有元素之间都没有任何字符。
+
+**返回值**
+
+- 一个所有数组元素连接的字符串。如果 arr.length 为 0，则返回空字符串。
+
+**描述**
+
+所有的数组元素被转换成字符串，再用一个分隔符将这些字符串连接起来。
+
+```js
+let colors = ["red", "green", "blue"];
+alert(colors.join(",")); // red,green,blue
+alert(colors.join("||")); // red||green||blue
+```
+
+这里在 colors 数组上调用了 join()方法，得到了与调用 toString()方法相同的结果。传入逗
+号，结果就是逗号分隔的字符串。最后一行给 join() 传入了双竖线，得到了字符串
+"red||green||blue"。如果不给 join()传入任何参数，或者传入 undefined，则仍然使用逗号作为
+分隔符。
+
+::: warning
+如果数组中某一项是 null 或 undefined，则在 join()、toLocaleString()、
+toString()和 valueOf()返回的结果中会以空字符串表示
+:::
+
+```js
+let a = ["Wind", "Rain", undefined, null];
+let myVar1 = a.join(); // myVar1的值变为"Wind,Rain,,"
+```
+
+## 栈方法
+
+ECMAScript 给数组提供几个方法，让它看起来像是另外一种数据结构。数组对象可以像栈一样，
+也就是一种限制插入和删除项的数据结构。栈是一种**后进先出**（LIFO，Last-In-First-Out）的结构，也就
+是最近添加的项先被删除。数据项的插入（称为**推入**，push）和删除（称为**弹出**，pop）只在栈的一个
+地方发生，即栈顶。ECMAScript 数组提供了 push()和 pop()方法，以实现类似栈的行为。
+
+push()方法接收任意数量的参数，并将它们添加到数组末尾，返回数组的最新长度。pop()方法则
+用于删除数组的最后一项，同时减少数组的 length 值，返回被删除的项。
+
+```js
+let colors = new Array(); // 创建一个数组
+let count = colors.push("red", "green"); // 推入两项
+alert(count); // 2
+count = colors.push("black"); // 再推入一项
+alert(count); // 3
+let item = colors.pop(); // 取得最后一项
+alert(item); // black
+alert(colors.length); // 2
+```
+
+这里创建了一个当作栈来使用的数组（注意不需要任何额外的代码，push()和 pop()都是数组的
+默认方法）。首先，使用 push()方法把两个字符串推入数组末尾，将结果保存在变量 count 中（结果
+为 2）。
+
+然后，再推入另一个值，再把结果保存在 count 中。因为现在数组中有 3 个元素，所以 push()返
+回 3。在调用 pop()时，会返回数组的最后一项，即字符串"black"。此时数组还有两个元素。
+
+栈方法可以与数组的其他任何方法一起使用
+
+```js
+let colors = ["red", "blue"];
+colors.push("brown"); // 再添加一项
+colors[3] = "black"; // 添加一项
+alert(colors.length); // 4
+let item = colors.pop(); // 取得最后一项
+alert(item); // black
+```
+
+这里先初始化了包含两个字符串的数组，然后通过 push()添加了第三个值，第四个值是通过直接
+在位置 3 上赋值添加的。调用 pop()时，返回了字符串"black"，也就是最后添加到数组的字符串。
