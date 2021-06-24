@@ -951,3 +951,277 @@ watch(
   }
 );
 ```
+
+### 生命周期钩子
+
+- 我们前面说过 setup 可以用来替代 data 、 methods 、 computed 、watch 等等这些选项，也可以替代 生命周
+  期钩子。
+- 那么 setup 中如何使用生命周期函数呢？
+  - 可以使用直接导入的 onX 函数注册生命周期钩子；
+
+```js
+onMounted(() => {
+  console.log("onMounted");
+});
+onUpdated(() => {
+  console.log("onUpdated");
+});
+onUnmounted(() => {
+  console.log("onUnmounted");
+});
+```
+
+![](/frontEnd/frame/vue/80.png)
+
+:::tip
+因为 **setup** 是围绕 **beforeCreate** 和 **created** 生命周期钩子运行的，所以不需要显式地定义它们。换句话说，在这些钩子中编写的任何代码都应该直接在 **setup** 函数中编写。
+
+也就是**不需要**使用 beforeCreate 和 created 了
+:::
+
+### Provide/Inject
+
+#### Provide 函数
+
+- 事实上我们之前还学习过 Provide 和 Inject，Composition API 也可以替代之前的 Provide 和 Inject 的选项。
+- 我们可以通过 provide 来提供数据：
+  - 可以通过 provide 方法来定义每个 Property；
+  - provide 可以传入两个参数：
+    - name：提供的属性名称；
+    - value：提供的属性值；
+
+```js
+const name = ref("tao");
+const counter = ref(0);
+provide("name", readonly(name));
+provide("counter", readonly(counter));
+```
+
+#### Inject 函数
+
+- 在 后代组件 中可以通过 inject 来注入需要的属性和对应的值：
+
+  - 可以通过 inject 来注入需要的内容；
+  - inject 可以传入两个参数：
+    - 要 inject 的 property 的 name；
+    - 默认值；
+
+```js
+const name = inject("name");
+let counter = inject("counter");
+```
+
+:::tip
+:books:[Provide / Inject](https://v3.cn.vuejs.org/guide/composition-api-provide-inject.html#%E8%AE%BE%E6%83%B3%E5%9C%BA%E6%99%AF)
+:::
+
+### 自定义 Hook
+
+#### useCounter
+
+```js
+import { ref, computed } from "vue";
+
+export function useCounter() {
+  let counter = ref(0);
+  let doubleCounter = computed(() => counter.value * 2);
+
+  const increment = () => counter.value++;
+
+  const decrement = () => counter.value--;
+
+  return {
+    counter,
+    increment,
+    decrement,
+    doubleCounter,
+  };
+}
+```
+
+#### useScrollPosition
+
+```js
+import { ref } from "vue";
+
+export function useScrollPosition() {
+  const scrollX = ref(0);
+  const scrollY = ref(0);
+
+  document.addEventListener("scroll", () => {
+    scrollX.value = window.scrollX;
+    scrollY.value = window.scrollY;
+  });
+
+  return {
+    scrollX,
+    scrollY,
+  };
+}
+```
+
+#### useMousePosition
+
+```js
+import { ref } from "vue";
+
+export function useMousePosition() {
+  const mouseX = ref(0);
+  const mouseY = ref(0);
+
+  document.addEventListener("mousemove", (event) => {
+    mouseX.value = event.pageX;
+    mouseY.value = event.pageY;
+  });
+
+  return {
+    mouseX,
+    mouseY,
+  };
+}
+```
+
+#### useTitle
+
+```js
+import { ref, watch } from "vue";
+
+export function useTitle(title = "默认的title") {
+  const titleRef = ref(title);
+  watch(
+    titleRef,
+    (newValue) => {
+      document.title = newValue;
+    },
+    { immediate: true }
+  );
+  return titleRef;
+}
+```
+
+#### useLocalStorage
+
+```js
+import { ref, watch } from "vue";
+
+export function useLocalStorage(key, value) {
+  const data = ref(value);
+  if (value) {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  } else {
+    data.value = JSON.parse(window.localStorage.getItem(key));
+  }
+  watch(data, (newValue) => {
+    window.localStorage.setItem(key, JSON.stringify(newValue));
+  });
+  return data;
+}
+
+// 一个参数:取值
+// useLocalStorage("name")
+
+// 两个参数:存值
+// useLocalStorage("name", "tao")
+```
+
+#### 整体封装
+
+在开发中一般建立一个 Hooks 的文件夹,然后在写一下自定义的 hook,如果在一个地方想使用多个 hook 的话,通常情况下都是这样的
+
+```js
+import { useCounter } from "./hooks/useCounter";
+import { useTitle } from "./hooks/useTitle";
+import { useScrollPosition } from "./hooks/useScrollPosition";
+import { useMousePosition } from "./hooks/useMousePosition";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+```
+
+但是如果我们要使用的 hook 越来越多,这样我们一段一段的导入就会效率很低
+
+所以一般我们会在 Hooks 文件夹中建立一个 index.js 的文件
+
+然后在 index.js 的文件中导入其它 hook,然后导出
+
+```js
+export { useCounter } from "./useCounter";
+export { useTitle } from "./useTitle";
+export { useMousePosition } from "./useMousePosition";
+export { useScrollPosition } from "./useScrollPosition";
+export { useLocalStorage } from "./useLocalStorage";
+```
+
+最后在使用的时候我们直接导入 Hooks 的文件夹就可以了,因为直接导入 Hooks 默认会导入 Hooks/index.js 的文件,不熟悉的可以看看我的 Node.js 的文章(后续更新)
+
+```js
+import {
+  useCounter,
+  useTitle,
+  useMousePosition,
+  useScrollPosition,
+  useLocalStorage,
+} from "./hooks";
+```
+
+### setup 语法糖(rfc)
+
+setup 语法糖旨在帮助开发者提升开发效率,不过我个人觉得语法糖的**阅读性**不是很好,而且目前也在**实验阶段**,具体后续能否上线正式阶段还是个未知数
+
+```vue
+// Home.vue
+<template>
+  <div>
+    <h2>Home界面</h2>
+    <p>{{ title }}</p>
+    <button @click="sendEmit">发送事件</button>
+  </div>
+</template>
+
+<script setup>
+import { defineProps, defineEmit } from "vue";
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: "呵呵呵",
+  },
+});
+
+const emit = defineEmit(["HomeClick"]);
+const sendEmit = () => {
+  emit("HomeClick", "1000");
+};
+</script>
+
+<style scoped></style>
+```
+
+```vue
+// App.vue
+
+<template>
+  <div>
+    <h2>当前计数:{{ counter }}</h2>
+    <button @click="increment">+1</button>
+    <button @click="decrement">+1</button>
+    <button @click="Appclick">接收事件</button>
+    <home title="哈哈哈" @HomeClick="Appclick" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from "vue";
+import Home from "./Home.vue";
+
+let counter = ref(0);
+
+const increment = () => counter.value++;
+const decrement = () => counter.value--;
+const Appclick = (payload) => {
+  console.log(payload);
+};
+</script>
+
+<style scoped></style>
+```
+
+具体请查看 rfc 文档:books:[单文件组件组合式 API 语法糖 ](https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md)

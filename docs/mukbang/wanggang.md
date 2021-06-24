@@ -13,3 +13,9 @@ title: 美食家王刚
 ![](/mukbang/11.jpg)
 
 :tv:[厨师长交作业“蒜蓉小龙虾”，惨遭伯爷吐槽味道安逸但毛多肉少](https://www.bilibili.com/video/BV1Jb4y1o7zD)
+
+## 油焖小龙虾
+
+![](/mukbang/14.jpg)
+
+:tv:[厨师长教你：“油焖小龙虾”的家常做法，香辣入味，越吃越过瘾](https://www.bilibili.com/video/BV1E44y1z7Gt)

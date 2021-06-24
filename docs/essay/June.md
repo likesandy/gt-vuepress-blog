@@ -438,3 +438,17 @@ window 厉害,但是我喜欢 mac
 我觉得这种事情都可以上热搜就离谱,这很明显是基本的素质和道德问题
 
 :speech_balloon: [如何看待浙江夫妇吃自助餐坚持要将牛排打包带走的行为？](https://www.zhihu.com/question/465511011)
+
+## 6/24
+
+### 阅片无数
+
+:tv: [笑死！路霸劫道，拦下部队运兵车【阅片无数 Ⅱ 08】](https://www.bilibili.com/video/BV1nq4y1s7m1)
+
+### 瑞克和莫蒂
+
+:tv: [9.9 分脑洞神作，全宇宙最狂爷孙俩回归！详解动画《瑞克和莫蒂》S5E1](https://www.bilibili.com/video/BV1uw411o7E6)
+
+### 日志
+
+今天还是继续学习 Vue 的 Composition API,被 Vite 的 JSX 搞的时间有点久,用 CLI 就很兼容,Vite 就有点问题,这点是我太菜了,搞的时间有点久,学习阶段,我就较真我非要用 vite 来弄 jsx,然后学了 render 函数,感觉跟 React 越来越像了,然后上传了王刚老师的油焖小龙虾,看着真带劲,最后没事打了会炉石,每次都是差 1 一颗星上传说,太难了,今天就这样吧,明天继续搞 Vue🤗🤗
