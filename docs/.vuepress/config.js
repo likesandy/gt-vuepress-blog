@@ -9,5 +9,6 @@ module.exports = {
   themeConfig: {
     nav: navConf,
     lastUpdated: '上次更新',
+    search: false
   },
 };

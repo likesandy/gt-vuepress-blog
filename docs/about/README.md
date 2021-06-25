@@ -1,5 +1,6 @@
 ---
 title: 首页
+showSponsor: true
 ---
 
 ![](/about/4.jpg)

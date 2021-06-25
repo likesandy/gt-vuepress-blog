@@ -32,9 +32,7 @@ title: 关于我
 
 ## 最后
 
-![5](/about/1.jpg)
-
-![6](/about/2.jpg)
+![](/about/1.jpg)
 
 ::: tip
 **:rainbow:不求自己过得大富大贵,只求通过自己的能力获得最大的幸福:rainbow:**

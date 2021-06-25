@@ -19,3 +19,9 @@ title: 田野上的繁华
 ![](/mukbang/13.jpg)
 
 :tv:[15 元素食自助餐，全场菜品不限量，家常味道真不错](https://www.bilibili.com/video/BV1kf4y1t7CY)
+
+## 葱油拌面皮
+
+![](/mukbang/15.jpg)
+
+:tv:[行车路上怼一锅葱油拌面皮，配上鸡蛋火腿肠，软香又顶饿](https://www.bilibili.com/video/BV1jK4y1g75b)
