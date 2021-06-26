@@ -60,5 +60,3 @@ title: 首页
   npm install webpack webpack-cli –g # 全局安装
   npm install webpack webpack-cli –D # 局部安装
   ```
-
-##
