@@ -386,3 +386,178 @@ export default {};
 ```
 
 ![](/frame/vue/84.png)
+
+## 插件
+
+### 认识 Vue 插件
+
+- 通常我们向 Vue 全局添加一些功能时，会采用插件的模式，它有两种编写方式：
+  - **对象**类型：一个对象，但是必须包含一个 install 的函数，该函数会在安装插件时执行；
+  - **函数**类型：一个 function，这个函数会在安装插件时自动执行；
+- 插件可以完成的功能没有限制，比如下面的几种都是可以的：
+  - 添加全局方法或者 property，通过把它们添加到 config.globalProperties 上实现；
+  - 添加全局资源：指令/过滤器/过渡等；
+  - 通过全局 mixin 来添加一些组件选项；
+  - 一个库，提供自己的 API，同时提供上面提到的一个或多个功能；
+
+### 插件的编写方式
+
+**对象类型的写法**
+
+```js
+// pluginObject.js
+export default {
+  install(app) {
+    console.log(app);
+  },
+};
+```
+
+```js
+// main.js
+import pluginObject from "./05_插件/pluginObject";
+app.use(pluginObject);
+```
+
+打印 app 对象
+
+![](/frame/vue/85.png)
+
+打印出了 app 对象说明是没有问题了,接下来我们来给 app 一个 name ,让其它的组件可以来访问它
+
+```js
+// pluginObject.js
+export default {
+  install(app) {
+    app.config.globalProperties.name = "tao";
+  },
+};
+```
+
+我们在组件中来看一下是否能够拿到 app 的 name 属性
+
+```js
+// App.vue
+<script>
+export default {
+  mounted() {
+    console.log(this.name);
+  },
+};
+</script>
+```
+
+![](/frame/vue/86.png)
+
+这就表示代码是没有问题的,app 上有一个 name 属性,而且在任何组件上可以拿到 name 属性
+
+但是有一个问题,这里通过 this.name 拿到 app 的 name,那么如果我们 data 中如果也有 name 怎么办
+
+社区上有一个**约定俗成的规定**,一般在 app 上绑定的全局的属性或者方法,前面都要**加一个\$**
+
+那么我们拿 app 的东西的话就是通过\$xx 的形式,那么就不会跟组件的其他数据产生冲突了
+
+```js
+// App.vue
+export default {
+  install(app) {
+    // app.config.globalProperties.name = 'tao';
+    app.config.globalProperties.$name = "tao";
+  },
+};
+```
+
+```js
+// App.vue
+<script>
+export default {
+  mounted() {
+    console.log(this.$name);
+  },
+};
+</script>
+```
+
+![](/frame/vue/86.png)
+
+**函数类型的写法**
+
+```js
+// pluginFunction.js
+export default function(app) {
+  app.config.globalProperties.$age = 19;
+}
+```
+
+```js
+// main.js
+import pluginFunction from "./05_插件/pluginFunction";
+app.use(pluginFunction);
+```
+
+```js
+// App.vue
+<script>
+export default {
+  mounted() {
+    console.log(this.$name);
+    console.log(this.$age);
+  },
+};
+</script>
+```
+
+![](/frame/vue/87.png)
+
+上面是在 Options 中来使用 app 的东西
+
+那么如果是在 Composition 中怎么使用 app 的东西
+
+因为 setup 中是没有绑定 this 的,想在 setup 中使用 app 的东西需要导入一个函数
+
+```js
+import { getCurrentInstance } from "vue";
+```
+
+getCurrentInstance 顾名思义拿到当前组件实例,可能会想既然都拿到了组件实例,那么是不是就可以通过.$name的形式拿到实例的$name
+
+```js
+<script>
+import { getCurrentInstance } from "vue";
+export default {
+  setup() {
+    const instance = getCurrentInstance();
+    console.log(instance.$name);
+    console.log(instance.$age);
+  },
+};
+</script>
+```
+
+![](/frame/vue/88.png)
+
+这样是拿不到实例里的东西的,在 setup 中想要拿到实例里的东西是比在 Composition API 里面是更麻烦一点的
+
+```js
+<script>
+import { getCurrentInstance } from "vue";
+export default {
+  setup() {
+    const instance = getCurrentInstance();
+    // console.log(instance.$name);
+    // console.log(instance.$age);
+    console.log(instance.appContext.config.globalProperties.$name);
+    console.log(instance.appContext.config.globalProperties.$age);
+  },
+};
+</script>
+```
+
+在 setup 中是要通过实例的 appContext(app 上下文 = app).config.globalProperties.xx 的形式来拿到的
+
+很像我们在编写插件的时候格式
+
+![](/frame/vue/89.png)
+
+## 源码学习
+

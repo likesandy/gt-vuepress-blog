@@ -26,4 +26,11 @@ module.exports = {
   },
   'vuepress-plugin-smooth-scroll': true,
   'img-lazy': true,
+  '@vuepress/pwa': {
+    serviceWorker: true,
+    updatePopup: {
+      message: "更新了新的内容",
+      buttonText: "刷新"
+    }
+  }
 };
