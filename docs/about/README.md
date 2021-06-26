@@ -3,7 +3,7 @@ title: 首页
 showSponsor: true
 ---
 
-![](/about/4.jpg)
+![](/about/1.jpg)
 
 ## 前言
 

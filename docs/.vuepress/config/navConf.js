@@ -1,6 +1,5 @@
 module.exports = [
   { text: '首页', link: '/' },
-  { text: '关于', link: '/about/' },
   {
     text: '三剑客', items: [
       { text: 'HTML', link: '/basics/html/' },
@@ -21,18 +20,12 @@ module.exports = [
     ]
   },
   { text: '算法', link: '/dataStructure/' },
-  { text: '收藏', link: '/collect/' },
   {
     text: '书籍', items: [
       { text: 'JavaScript高级程序设计', link: '/books/ruby/' },
     ]
   },
-  { text: '日志', link: '/log/' },
-  {
-    text: '更多', items: [
-      { text: '吃播集锦', link: '/mukbang/' },
-      { text: '电影分享', link: '/movies/' },
-    ]
-  },
+  { text: '收藏', link: '/collect/' },
+  { text: '关于', link: '/about/' },
   { text: 'Github', link: 'https://github.com/likesandy', },
 ]

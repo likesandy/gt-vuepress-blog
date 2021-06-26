@@ -2,16 +2,12 @@
 title: 首页
 ---
 
-## 关于
+## 介绍
 
-![](/books/ruby/1.jpg)
+学习前端,绕不开的 3 本书:**犀牛书**,**蝴蝶书**,以及这本**红宝书**.对我而言,犀牛书太厚碎,蝴蝶树树太薄精,都不是那么容易阅读;而这本红宝书刚刚好,对初学者十分友好
 
 ## 参考资料
 
-- [JavaScript 高级程序设计（第 4 版）](https://pan.baidu.com/s/1r7IxVI05mBXgXYjTcyq0Fw)
+- 《JavaScript 高级程序设计（第 4 版》
 
-- [JS 高级程序设 4 附序](https://pan.baidu.com/s/18XLEm24lYOwdsx6V9UcUFQ)
-
-::: danger
-提取码: 6666
-:::
+- 《JS 高级程序设 4 附序》
