@@ -558,6 +558,3 @@ export default {
 很像我们在编写插件的时候格式
 
 ![](/frame/vue/89.png)
-
-## 源码学习
-
