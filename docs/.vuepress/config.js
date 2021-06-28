@@ -7,8 +7,12 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
+  plugins: pluginConf,
   themeConfig: {
     nav: navConf,
     lastUpdated: '上次更新',
   },
+  markdown: {
+    lineNumbers: true
+  }
 };

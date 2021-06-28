@@ -7,6 +7,7 @@ module.exports = [
       { text: 'JavaScript', link: '/basics/javascript/' }
     ]
   },
+  { text: 'Git', link: '/git/' },
   {
     text: '打包工具', items: [
       { text: 'Webpack', link: '/pack/webpack/' },

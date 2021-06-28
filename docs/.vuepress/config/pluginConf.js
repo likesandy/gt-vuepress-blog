@@ -18,12 +18,12 @@ module.exports = {
       }
     },
   },
-  'one-click-copy': {
-    copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'],
-    copyMessage: '复制成功',
-    duration: 1000,
-    showInMobile: false
-  },
+  // 'one-click-copy': {
+  //   copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'],
+  //   copyMessage: '复制成功',
+  //   duration: 1000,
+  //   showInMobile: false
+  // },
   'vuepress-plugin-smooth-scroll': true,
   'img-lazy': true,
 };

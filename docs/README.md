@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /sandy.jpg
+heroImage: /2.jpg
 actionText: Hello World
 heroText: codertao
 actionLink: /about/
