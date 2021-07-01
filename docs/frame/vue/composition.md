@@ -157,3 +157,32 @@ export default {
 ```
 
 ![](/frame/vue/91.gif)
+
+:::tip 提示
+ref 为我们的值创建了一个响应式引用。在整个组合式 API 中会经常使用引用的概念。
+:::
+
+#### 在 setup 内注册生命周期钩子
+
+为了使组合式 API 的功能和选项式 API 一样完整，我们还需要一种在 `setup` 中注册生命周期钩子的方法。这要归功于 Vue 导出的几个新函数。组合式 API 上的生命周期钩子与选项式 API 的名称相同，但前缀为 on：即 `mounted` 看起来会像 `onMounted`。
+
+```vue {6,9}
+<template>
+  <div></div>
+</template>
+
+<script>
+import { onMounted } from "vue";
+export default {
+  setup() {
+    onMounted(() => {
+      console.log("onMounted");
+    });
+  },
+};
+</script>
+
+<style scoped></style>
+```
+
+#### `watch` 响应式更改

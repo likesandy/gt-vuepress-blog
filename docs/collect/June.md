@@ -3,8 +3,6 @@ title: 六月
 autoPrev: May
 ---
 
-![](/collect/2.jpg)
-
 **6/1** :blue_book:[ 最全的手写 JS 面试题](https://juejin.cn/post/6968713283884974088#heading-24)
 
 **6/15** :blue_book:[ 【第一批吃螃蟹】试用 React 18 ！](https://juejin.cn/post/6973222013028532237)

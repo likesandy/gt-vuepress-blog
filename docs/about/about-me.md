@@ -2,8 +2,6 @@
 title: 关于我
 ---
 
-![](/about/2.jpg)
-
 ## 联系方式
 
 - qq: [1445709137]():yellow_heart:
