@@ -10,4 +10,21 @@ module.exports = [
       'mixin',
     ]
   },
+  {
+    title: '高阶指南',
+    collapsable: false,
+    children: [
+      {
+        title: '响应式', collapsable: true, children: ['reactivity', 'reactivity-fundamentals', 'reactivity-computed-watchers',],
+      },
+    ]
+  },
+  {
+    title: 'Vue Router',
+    collapsable: true,
+    children: [
+      'introduction',
+      'guide'
+    ]
+  },
 ];
