@@ -20,12 +20,13 @@ module.exports = [
       { text: 'React', link: '/frame/react/' }
     ]
   },
-  { text: '算法', link: '/dataStructure/' },
+  // { text: '算法', link: '/dataStructure/' },
   {
     text: '书籍', items: [
       { text: 'JavaScript高级程序设计', link: '/books/ruby/' },
     ]
   },
+  { text: '面试宝典', link: '/interview/' },
   { text: '收藏', link: '/collect/' },
   { text: '关于', link: '/about/' },
   { text: 'Github', link: 'https://github.com/likesandy', },

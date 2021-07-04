@@ -6,4 +6,6 @@ module.exports = {
   // '/pack/vite/': require('./pack/vite'),
   '/frame/vue/': require('./frame/vue'),
   '/collect/': require('./collect'),
+  '/books/ruby/': require('./books/ruby'),
+  '/interview/': require('./interview')
 };

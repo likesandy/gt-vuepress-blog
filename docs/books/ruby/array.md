@@ -2,8 +2,6 @@
 title: Array
 ---
 
-## Array
-
 除了 Object，Array 应该就是 ECMAScript 中最常用的类型了。ECMAScript 数组跟其他编程语言
 的数组有很大区别。跟其他语言中的数组一样，ECMAScript 数组也是一组有序的数据，但跟其他语言
 不同的是，数组中每个槽位可以存储**任意类型**的数据。这意味着可以创建一个数组，它的第一个元素
@@ -719,3 +717,161 @@ alert(item); // black
 
 这里先初始化了包含两个字符串的数组，然后通过 push()添加了第三个值，第四个值是通过直接
 在位置 3 上赋值添加的。调用 pop()时，返回了字符串"black"，也就是最后添加到数组的字符串。
+
+## 搜索和位置方法
+
+ECMAScript 提供两类搜索数组的方法：按**严格相等搜索**和**按断言函数搜索**。
+
+### 严格相等
+
+ECMAScript 提供了 3 个严格相等的搜索方法：`indexOf()`、`lastIndexOf()`和 `includes()`。其
+中，前两个方法在所有版本中都可用，而第三个方法是 ECMAScript 7 新增的。这些方法都接收两个参
+数：要查找的元素和一个可选的起始搜索位置。`indexOf()`和 `includes()`方法从数组前头（第一项）
+开始向后搜索，而 `lastIndexOf()`从数组末尾（最后一项）开始向前搜索。
+
+`indexOf()`和 `lastIndexOf()`都返回要查找的元素在数组中的位置，如果没找到则返回 1。
+`includes()`返回布尔值，表示是否至少找到一个与指定元素匹配的项。在比较第一个参数跟数组每一
+项时，会使用全等（===）比较，也就是说两项必须严格相等。下面来看一些例子：
+
+```js
+let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+alert(numbers.indexOf(4)); // 3
+alert(numbers.lastIndexOf(4)); // 5
+alert(numbers.includes(4)); // true
+alert(numbers.indexOf(4, 4)); // 5
+alert(numbers.lastIndexOf(4, 4)); // 3
+alert(numbers.includes(4, 7)); // false
+let person = { name: "Nicholas" };
+let people = [{ name: "Nicholas" }];
+let morePeople = [person];
+alert(people.indexOf(person)); // -1
+alert(morePeople.indexOf(person)); // 0
+alert(people.includes(person)); // false
+alert(morePeople.includes(person)); // true
+```
+
+:::tip
+lastIndexOf 是从后往前进行搜索,得到的值是从前往后的下标值
+
+上述代码通过画内存图可以很方便的得出答案
+:::
+
+### 断言函数
+
+ECMAScript 也允许按照定义的断言函数搜索数组，每个索引都会调用这个函数。断言函数的返回
+值决定了相应索引的元素是否被认为匹配。
+
+断言函数接收 3 个参数：元素、索引和数组本身。其中元素是数组中当前搜索的元素，索引是当前
+元素的索引，而数组就是正在搜索的数组。断言函数返回真值，表示是否匹配。
+
+`find()`和 `findIndex()`方法使用了断言函数。这两个方法都从数组的最小索引开始。find()返回
+第一个匹配的元素，`findIndex()`返回第一个匹配元素的索引。这两个方法也都接收第二个可选的参数，
+用于指定断言函数内部 this 的值。
+
+```js
+const people = [
+  {
+    name: "Matt",
+    age: 27,
+  },
+  {
+    name: "Nicholas",
+    age: 29,
+  },
+];
+alert(people.find((element, index, array) => element.age < 28));
+// {name: "Matt", age: 27}
+alert(people.findIndex((element, index, array) => element.age < 28));
+// 0
+```
+
+找到匹配项后，这两个方法都不再继续搜索。
+
+```js
+const evens = [2, 4, 6];
+// 找到匹配后，永远不会检查数组的最后一个元素
+evens.find((element, index, array) => {
+  console.log(element);
+  console.log(index);
+  console.log(array);
+  return element === 4;
+});
+// 2
+// 0
+// [2, 4, 6]
+// 4
+// 1
+// [2, 4, 6]
+```
+
+## 迭代方法
+
+ECMAScript 为数组定义了 5 个迭代方法。每个方法接收两个参数：以每一项为参数运行的函数，
+以及可选的作为函数运行上下文的作用域对象（影响函数中 this 的值）。传给每个方法的函数接收 3
+个参数：数组元素、元素索引和数组本身。因具体方法而异，这个函数的执行结果可能会也可能不会影
+响方法的返回值。数组的 5 个迭代方法如下。
+
+- `every()`：对数组每一项都运行传入的函数，如果对每一项函数都返回 true，则这个方法返回 true。
+
+- `filter()`：对数组每一项都运行传入的函数，函数返回 true 的项会组成数组之后返回。
+
+- `forEach()`：对数组每一项都运行传入的函数，没有返回值。
+
+- `map()`：对数组每一项都运行传入的函数，返回由每次函数调用的结果构成的数组。
+
+- `some()`：对数组每一项都运行传入的函数，如果有一项函数返回 true，则这个方法返回 true。
+
+这些方法都不改变调用它们的数组。
+
+在这些方法中，`every()`和 `some()`是最相似的，都是从数组中搜索符合某个条件的元素。对 `every()`
+来说，传入的函数必须对每一项都返回 true，它才会返回 true；否则，它就返回 false。而对 `some()`
+来说，只要有一项让传入的函数返回 true，它就会返回 true。下面是一个例子：
+
+```js
+let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+let everyResult = numbers.every((item, index, array) => item > 2);
+alert(everyResult); // false
+let someResult = numbers.some((item, index, array) => item > 2);
+alert(someResult); // true
+```
+
+以上代码调用了 `every()`和 `some()`，传入的函数都是在给定项大于 2 时返回 true。`every()`返
+回 false 是因为并不是每一项都能达到要求。而 `some()`返回 true 是因为至少有一项满足条件。
+
+下面再看一看 filter()方法。这个方法基于给定的函数来决定某一项是否应该包含在它返回的数
+组中。比如，要返回一个所有数值都大于 2 的数组，可以使用如下代码：
+
+```js
+let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+let filterResult = numbers.filter((item, index, array) => item > 2);
+alert(filterResult); // 3,4,5,4,3
+```
+这里，调用 filter()返回的数组包含 3、4、5、4、3，因为只有对这些项传入的函数才返回 true。
+这个方法非常适合从数组中筛选满足给定条件的元素。
+
+接下来 map()方法也会返回一个数组。这个数组的每一项都是对原始数组中同样位置的元素运行传
+入函数而返回的结果。例如，可以将一个数组中的每一项都乘以 2，并返回包含所有结果的数组，如下
+所示：
+
+```js
+let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+let mapResult = numbers.map((item, index, array) => item * 2);
+alert(mapResult); // 2,4,6,8,10,8,6,4,2
+```
+
+以上代码返回了一个数组，包含原始数组中每个值乘以 2 的结果。这个方法非常适合创建一个与原
+始数组元素一一对应的新数组。
+
+最后，再来看一看 forEach()方法。这个方法只会对每一项运行传入的函数，没有返回值。本质
+上，forEach()方法相当于使用 for 循环遍历数组。比如：
+
+```js
+let numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+numbers.forEach((item, index, array) => {
+ // 执行某些操作
+}); 
+```
+
+数组的这些迭代方法通过执行不同操作方便了对数组的处理。
+
+
