@@ -1,5 +1,6 @@
 module.exports = [
   '',
   'May',
-  'June'
+  'June',
+  'july'
 ];

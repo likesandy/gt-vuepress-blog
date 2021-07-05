@@ -6,18 +6,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      box-sizing: border-box;
+      visibility: hidden
+    }
+
+    .box2 {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="box"></div>
+  <div class="box2"></div>
   <script>
-    function test() {
-      const name = 'tao';
-      return function () {
-        console.log(1);
-      }
-    }
-    let fn = test()
-    fn()
   </script>
 </body>
 
