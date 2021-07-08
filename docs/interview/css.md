@@ -271,3 +271,95 @@ BFC 可以清除浮动,`BFC` 也可以阻止元素被浮动元素覆盖,浮动�
 ## css 精灵图
 
 ## 伪类/伪元素
+
+## line-height 继承的坑
+
+- 具体的数据
+
+```html
+<div class="father">
+  <div class="son"></div>
+</div>
+```
+
+```css
+.father {
+  width: 300px;
+  height: 300px;
+  background: red;
+  box-sizing: border-box;
+  line-height: 300px;
+}
+
+.son {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  display: inline-block;
+  box-sizing: border-box;
+}
+```
+
+son 会直接继承来自父亲的行高
+
+![](/interview/1.png)
+
+- 比例
+
+```css
+.father {
+  width: 300px;
+  height: 300px;
+  background: red;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.son {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+```
+
+子元素的行高会继承父元素的行高 \* 子元素的字体大小
+
+![](/interview/2.png)
+
+- 百分比
+
+```css
+.father {
+  width: 300px;
+  height: 300px;
+  background: red;
+  box-sizing: border-box;
+  line-height: 200%;
+}
+
+.son {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 30px;
+}
+```
+
+子元素的行高会继承父元素的行高 \* 父元素的字体大小(没有设置字体大小的元素默认是 16px)
+
+![](/interview/3.png)
+
+## margin 塌陷和 margin 合并
+
+- [参考文章](https://www.cnblogs.com/freefy/p/9376684.html#:~:text=margin%E5%A1%8C%E9%99%B7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.%201.%E7%BB%99%E7%88%B6%E7%BA%A7%E8%AE%BE%E7%BD%AE%E8%BE%B9%E6%A1%86%E6%88%96%E5%86%85%E8%BE%B9%E8%B7%9D%20%28%E4%B8%8D%E5%BB%BA%E8%AE%AE%E4%BD%BF%E7%94%A8%29%20.wrapper%20%7B%20width%3A%20200px%3B%20height%3A,%20%7D.%202.%E8%A7%A6%E5%8F%91bfc%20%28%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E4%B8%8A%E4%B8%8B%E6%96%87%29%2C%E6%94%B9%E5%8F%98%E7%88%B6%E7%BA%A7%E7%9A%84%E6%B8%B2%E6%9F%93%E8%A7%84%E5%88%99.%20%E6%96%B9%E6%B3%95%3A%20%E6%94%B9%E5%8F%98%E7%88%B6%E7%BA%A7%E7%9A%84%E6%B8%B2%E6%9F%93%E8%A7%84%E5%88%99%E6%9C%89%E4%BB%A5%E4%B8%8B%E5%9B%9B%E7%A7%8D%E6%96%B9%E6%B3%95%2C%E7%BB%99%E7%88%B6%E7%BA%A7%E7%9B%92%E5%AD%90%E6%B7%BB%E5%8A%A0.%20%281%29position%3Aabsolute%2Ffixed.%20%282%29display%3Ainline-block%3B)
+
+## display:inline-block 元素显示间隙
+
+- [参考文章](https://blog.csdn.net/qq_32614411/article/details/82223624)
+
+## px,em,rem
