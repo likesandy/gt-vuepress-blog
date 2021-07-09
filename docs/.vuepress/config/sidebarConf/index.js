@@ -7,5 +7,6 @@ module.exports = {
   '/frame/vue/': require('./frame/vue'),
   '/collect/': require('./collect'),
   '/books/ruby/': require('./books/ruby'),
-  '/interview/': require('./interview')
+  '/interview/': require('./interview'),
+  '/basics/javascript/': require('./basic/javascript'),
 };
