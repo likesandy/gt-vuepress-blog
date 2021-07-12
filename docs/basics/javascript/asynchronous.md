@@ -14,7 +14,49 @@ title: 异步
 
 ## 回调函数
 
+### 含义
+
+一个函数作为参数传递也可以作为返回值返回
+
+比如我们想打一句话,在 2 秒后输出
+
+```js
+setTimeout(() => {
+  console.log("Hello World");
+}, 2000);
+```
+
 ## Promise
+
+先放着,有时间再来写,[推荐视频](https://www.bilibili.com/video/BV15741177Eh?p=126)
+
+### 对比回调函数
+
+回调函数嵌套过多就会产生**回调地狱**的情况,整个代码的可阅读性将会大大降低,所以 `Promise` 就很好的解决了这个问题
+
+### 含义
+
+ES6 新增的引用类型`Promise`,可以通过 new 操作符进行实例化,创建一个 Promise 需要一个执行器函数(`resolve`/`rejecte`)作为参数
+
+### 状态
+
+`Promise`存在三种状态:
+
+- 待定(pending)(默认)
+- 兑现(fulfilled)
+- 拒绝(rejected)
+
+只要从默认状态转换为解决状态或者是拒绝状态,期约的状态都是不可逆的
+
+```js
+let p = new Promise((resolve, reject) => {
+  resolve();
+  setTimeout(() => {
+    reject();
+  }, 1000);
+});
+console.log(p); // fulfilled
+```
 
 ## 异步函数
 

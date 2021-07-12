@@ -24,7 +24,10 @@ module.exports = [
     collapsable: true,
     children: [
       'introduction',
-      'guide'
+      'guide',
+      'lazy-loading',
+      'dynamic-matching',
+      'notfound',
     ]
   },
 ];

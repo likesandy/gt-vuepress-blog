@@ -1,5 +1,6 @@
 ---
 title: 入门
+sidebarDepth: 0
 ---
 
 ## 路由的基本使用步骤
