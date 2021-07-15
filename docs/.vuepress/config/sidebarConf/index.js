@@ -9,4 +9,5 @@ module.exports = {
   '/books/ruby/': require('./books/ruby'),
   '/interview/': require('./interview'),
   '/basics/javascript/': require('./basic/javascript'),
+  '/type-script/': require('./type-script'),
 };

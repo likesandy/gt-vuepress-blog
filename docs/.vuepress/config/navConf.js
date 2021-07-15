@@ -7,7 +7,7 @@ module.exports = [
       { text: 'JavaScript', link: '/basics/javascript/' }
     ]
   },
-  { text: 'Git', link: '/git/' },
+  // { text: 'Git', link: '/git/' },
   {
     text: '打包工具', items: [
       { text: 'Webpack', link: '/pack/webpack/' },
@@ -20,6 +20,7 @@ module.exports = [
       { text: 'React', link: '/frame/react/' }
     ]
   },
+  { text: 'TypeScript', link: '/type-script/' },
   // { text: '算法', link: '/dataStructure/' },
   {
     text: '书籍', items: [
