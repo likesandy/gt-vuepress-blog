@@ -60,3 +60,13 @@ router.beforeEach((to, from) => {
   }
 });
 ```
+
+## 其他导航守卫
+
+Vue 还提供了很多的其他守卫函数，目的都是在某一个时刻给予我们回调，让我们可以更好的控制程序的流程或者功能：
+
+- [详情](https://next.router.vuejs.org/zh/guide/advanced/navigation-guards.html)
+
+:::tip 提示
+用得最多的还是 beforeEach,后续项目中用到其它的守卫再来进行补充
+:::

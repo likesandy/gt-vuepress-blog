@@ -23,6 +23,7 @@ module.exports = [
     title: 'Vue Router',
     collapsable: true,
     children: [
+      'preface',
       'introduction',
       'guide',
       'lazy-loading',
@@ -34,6 +35,16 @@ module.exports = [
       'router-view-slot',
       'dynamic-routing',
       'navigation-guards',
+    ]
+  },
+  {
+    title: 'Vuex',
+    collapsable: true,
+    children: [
+      'vuex/preface',
+      'vuex/introduction',
+      'vuex/guide',
+      'vuex/state',
     ]
   },
 ];

@@ -28,8 +28,6 @@ Vue Router 是 Vue.js 的**官方路由**。它与 Vue.js 核心深度集成，�
 
 - URL 的正确编码
 
-## 目录
-
 ## 官方文档
 
 - [Vue Router3](https://next.router.vuejs.org/zh/)
