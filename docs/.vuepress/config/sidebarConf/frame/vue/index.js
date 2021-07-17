@@ -45,6 +45,7 @@ module.exports = [
       'vuex/introduction',
       'vuex/guide',
       'vuex/state',
+      'vuex/getter',
     ]
   },
 ];
