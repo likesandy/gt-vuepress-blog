@@ -45,7 +45,10 @@ module.exports = [
       'vuex/introduction',
       'vuex/guide',
       'vuex/state',
-      'vuex/getter',
+      'vuex/getters',
+      'vuex/mutations',
+      'vuex/actions',
+      'vuex/modules',
     ]
   },
 ];

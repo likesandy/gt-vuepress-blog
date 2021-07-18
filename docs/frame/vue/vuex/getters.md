@@ -108,14 +108,8 @@ const afterSelectPrice = computed(() => store.getters.afterSelectPrice);
 
 ## `mapGetters` 辅助函数
 
-见上节 `mapState` 辅助函数,我暂时没找到适合的解构方案,我目前使用的是直接进行解构
+见上节 `mapState` 辅助函数
 
 ```js
-const { totalPrice, afterDiscountPrice, afterSelectPrice } = store.getters;
+const totalPrice = computed(() => store.getters.totalPrice);
 ```
-
-我打印 store.getters 的结果是一个普通的对象,可以直接解构,也符合官方的缓存机制说法
-
-:::danger 危险
-可能我的说法有误,这是我目前的理解,等后续仔细了解再看是否能进行修改
-:::

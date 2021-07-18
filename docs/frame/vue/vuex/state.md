@@ -84,9 +84,9 @@ const decrement = () => {
 :::warning 警告
 在 script setup 中这样来使用,个人感觉非常的冗余
 
-因为现在 script setup 已经定稿合并了,以后可能 script setup 用的比较多,所以我个人的话我不会选择 mapxxx,我会使用 toRefs 的形式,后期可能还会有 vuex5 的出现,带来全面的提升,让我们拭目以待
+因为现在 script setup 已经定稿合并了,以后可能 script setup 用的比较多,所以我个人的话我不会选择 mapxxx,我会使用 计算属性的形式,本来我想着用 toRefs 来进行解构,但感觉下来不符合规律,暂时还是先用着 computed,后期可能还会有 vuex5 的出现,带来全面的提升,让我们拭目以待
 :::
 
 ```js
-const { count } = toRefs(store.state);
+const count = computed(() => store.state.count);
 ```
