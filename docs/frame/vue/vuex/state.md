@@ -84,7 +84,15 @@ const decrement = () => {
 :::warning 警告
 在 script setup 中这样来使用,个人感觉非常的冗余
 
+我查了很久的文档和翻阅资料,v3 使用 vux4 的 map\*有问题
+
+map\* 助手不适用于 setup 中的组合 API，因为它们依赖于“this”：
+
+转载:[https://github.com/vuejs/vuex/issues/1948](https://github.com/vuejs/vuex/issues/1948)
+
 因为现在 script setup 已经定稿合并了,以后可能 script setup 用的比较多,所以我个人的话我不会选择 mapxxx,我会使用 计算属性的形式,本来我想着用 toRefs 来进行解构,但感觉下来不符合规律,暂时还是先用着 computed,后期可能还会有 vuex5 的出现,带来全面的提升,让我们拭目以待
+
+最后还是不决定在 v3 中使用 map\*,期待 Vuex5🎉🎉
 :::
 
 ```js
