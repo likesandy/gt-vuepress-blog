@@ -4,4 +4,5 @@ module.exports = [
   'install',
   'variable',
   'data-type',
+  'type-supplementary',
 ]
