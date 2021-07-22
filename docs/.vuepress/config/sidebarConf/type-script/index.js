@@ -5,4 +5,5 @@ module.exports = [
   'variable',
   'data-type',
   'type-supplementary',
+  'function',
 ]

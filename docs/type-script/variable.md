@@ -1,5 +1,6 @@
 ---
 title: 变量
+sidebarDepth: 0
 ---
 
 ## 变量的声明
