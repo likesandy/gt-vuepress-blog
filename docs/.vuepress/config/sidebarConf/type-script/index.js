@@ -6,4 +6,5 @@ module.exports = [
   'data-type',
   'type-supplementary',
   'function',
+  'class',
 ]

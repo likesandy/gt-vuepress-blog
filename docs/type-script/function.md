@@ -1,6 +1,5 @@
 ---
 title: 函数
-sidebarDepth: 0
 ---
 
 ## 函数类型
@@ -105,15 +104,6 @@ info.say();
 
 - TypeScript 认为函数 say 有一个对应的 this 的外部对象 info，所以在使用时，就会把 this 当做该对象。
 
-::: warning 题外话
-讲讲题外话,现在在日常开发中使用 this 的场景已经越来越少了
-
-- 如果你使用的是 React 的 Hook 来进行开发的话,基本上是很少会看到 this 的
-- 如果你使用的是 Vue3 开发的话,随着 v3 的组合式 API,在 setup 中编写代码的话也是不推荐使用 this 的
-
-现在的潮流是函数式开发,所以 this 这个东西可以做一个了解
-:::
-
 ## 不确定的 this
 
 但是对于某些情况来说，我们并不知道 this 到底是什么？
@@ -162,3 +152,87 @@ info.say(19);
 say.call({ name: "sandy" }, 21);
 say.apply({ name: "zm" }, [20]);
 ```
+
+## 函数重载
+
+简单来说：函数重载就是函数的名称相同，但是参数不同的几个函数
+
+在 TypeScript 中，如果我们编写了一个 add 函数，希望可以对字符串和数字类型进行相加，应该如何编写呢？
+
+我们可能会这样来编写，但是其实是错误的：
+
+```ts
+function add(a1: number | string, a2: number | string) {
+  return a1 + a2;
+}
+```
+
+![](/type-script/15.png)
+
+那么这个代码应该如何去编写呢？
+
+- 在 TypeScript 中，我们可以去编写不同的重载签名（overload signatures）来表示函数可以以不同的方式进行
+  调用；
+- 一般是编写两个或者以上的重载签名，再去编写一个通用的函数以及实现；
+
+比如我们对 sum 函数进行重构：
+
+在我们调用 sum 的时候，它会根据我们传入的参数类型来决定执行函数体时，到底执行哪一个函数的**重载签名**；
+
+```ts
+// 声明函数
+function add(a1: number, a2: number): number;
+
+function add(a1: string, a2: string): string;
+
+// 实现函数
+function add(a1: any, a2: any): any {
+  if (typeof a1 === "string" && typeof a2 === "string") {
+    return a1.length + a2.length;
+  }
+  return a1 + a2;
+}
+
+console.log(add(20, 30)); // 50
+console.log(add("abc", "cba")); // 6
+```
+
+但是注意，有实现提的函数，是不能直接被调用的：
+
+![](/type-script/16.png)
+
+调用重载的函数,是通过从上往下执行查看函数签名是否符合要求,符合的话则执行下面的实现函数,不符合则报错
+
+### 练习
+
+我们现在有一个需求：定义一个函数，可以传入字符串或者数组，获取它们的长度。
+
+这里有两种实现方案：
+
+- 使用联合类型来实现；
+- 实现函数重载来实现；
+
+```ts
+function getLength(a: string | any[]): number {
+  return a.length;
+}
+
+console.log(getLength("abc")); // 3
+console.log(getLength([123, 321, 1234567])); // 3
+```
+
+```ts
+function getLength(a: string): number;
+function getLength(a: any[]): number;
+
+function getLength(a: any): any {
+  return a.length;
+}
+
+console.log(getLength("abc")); // 3
+console.log(getLength([123, 321, 1234567])); // 3
+```
+
+在开发中我们选择使用哪一种呢？
+
+- 在可能的情况下，尽量选择使用联合类型来实现(简单用联合,复杂用重载)
