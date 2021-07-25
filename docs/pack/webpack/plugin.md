@@ -1,5 +1,6 @@
 ---
 title: 插件的使用
+sidebarDepth: 0
 ---
 
 ## 认识 Plugin
@@ -79,9 +80,7 @@ module.exports = {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
-    <title>
-      <%= htmlWebpackPlugin.options.title %>
-    </title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
 
   <body>

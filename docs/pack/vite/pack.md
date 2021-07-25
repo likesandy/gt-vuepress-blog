@@ -1,9 +1,7 @@
 ---
 title: 打包项目
-autoPrev: vue
----
-
-## Vite 打包项目
+sidebarDepth: 0
+---## Vite 打包项目
 
 - 我们可以直接通过 vite build 来完成对当前项目的打包工具：
 

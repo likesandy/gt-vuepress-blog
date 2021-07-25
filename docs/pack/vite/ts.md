@@ -1,5 +1,6 @@
 ---
 title: 处理ts
+sidebarDepth: 0
 ---
 
 ## Vite 对 TypeScript 的支持

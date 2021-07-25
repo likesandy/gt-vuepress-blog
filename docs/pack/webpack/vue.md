@@ -1,5 +1,6 @@
 ---
 title: 处理Vue
+sidebarDepth: 0
 ---
 
 ## Vue 源码的打包

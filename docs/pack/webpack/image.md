@@ -1,5 +1,6 @@
 ---
 title: 资源打包
+sidebarDepth: 0
 ---
 
 ## 加载图片案例准备

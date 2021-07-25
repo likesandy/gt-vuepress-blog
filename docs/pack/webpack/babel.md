@@ -1,6 +1,6 @@
 ---
 title: Babel
-autoPrev: plugin
+sidebarDepth: 0
 ---
 
 ## 为什么需要 babel？

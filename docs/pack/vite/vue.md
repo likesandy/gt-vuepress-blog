@@ -1,5 +1,6 @@
 ---
 title: 处理vue
+sidebarDepth: 0
 ---
 
 ## Vite 对 vue 的支持

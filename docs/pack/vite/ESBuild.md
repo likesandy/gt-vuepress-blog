@@ -1,6 +1,6 @@
 ---
 title: ESBuild
-autoPrev: pack
+sidebarDepth: 0
 ---
 
 ## ESBuild 解析

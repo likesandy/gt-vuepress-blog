@@ -1,5 +1,6 @@
 ---
 title: 基础打包
+sidebarDepth: 0
 ---
 
 ## Webpack 的默认打包

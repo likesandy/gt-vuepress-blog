@@ -1,8 +1,7 @@
 ---
 title: 基本使用
----
-
-## 浏览器原生支持模块化
+sidebarDepth: 0
+---## 浏览器原生支持模块化
 
 测试的时候打开 index.html 必须使用 live server 打开(vscode),否则将会**跨域**
 

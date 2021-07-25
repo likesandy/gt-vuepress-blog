@@ -1,6 +1,6 @@
 ---
 title: CSS打包
-autoPrev: default
+sidebarDepth: 0
 ---
 
 ## 编写案例代码

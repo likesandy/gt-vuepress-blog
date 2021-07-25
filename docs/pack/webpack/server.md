@@ -1,6 +1,6 @@
 ---
 title: devServer
-autoPrev: vue
+sidebarDepth: 0
 ---
 
 ## 为什么要搭建本地服务器？

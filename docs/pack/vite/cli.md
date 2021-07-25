@@ -1,6 +1,6 @@
 ---
 title: 脚手架工具
-autoPrev: ESBuild
+sidebarDepth: 0
 ---
 
 ## Vite 脚手架工具

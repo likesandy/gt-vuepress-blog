@@ -1,6 +1,5 @@
 module.exports = [
   '',
-  'first',
   'default',
   'css',
   'image',

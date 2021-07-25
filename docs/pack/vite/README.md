@@ -1,8 +1,7 @@
 ---
 title: 首页
----
-
-## 关于
+sidebarDepth: 0
+---## 关于
 
 本章根据 **coderwhy 老师**腾讯课堂的视频讲解进行的笔记记录,感兴趣的可以去[腾讯课堂](https://ke.qq.com/course/3453141):tada::tada:查看 coderwhy 老师的课程
 

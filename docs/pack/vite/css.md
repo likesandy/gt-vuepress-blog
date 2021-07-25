@@ -1,5 +1,6 @@
 ---
 title: 处理css
+sidebarDepth: 0
 ---
 
 ## 处理普通的 css
