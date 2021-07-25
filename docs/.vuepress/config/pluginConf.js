@@ -12,4 +12,5 @@ module.exports = {
   },
   'vuepress-plugin-smooth-scroll': true,
   'img-lazy': true,
+  'reading-progress': true,
 };

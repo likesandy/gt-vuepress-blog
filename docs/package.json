@@ -6,12 +6,13 @@
     "vuepress-plugin-smooth-scroll": "^0.0.3"
   },
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "dev": "vuepress dev ",
+    "build": "vuepress build ",
+    "deploy": "cloudbase framework deploy"
   },
   "dependencies": {
     "moment": "^2.29.1",
-    "vuepress-plugin-img-lazy": "^1.0.4"
+    "vuepress-plugin-img-lazy": "^1.0.4",
+    "vuepress-plugin-reading-progress": "^1.0.10"
   }
 }

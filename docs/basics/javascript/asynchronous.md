@@ -2,16 +2,6 @@
 title: 异步
 ---
 
-## 目录
-
-- [回调函数](#回调函数)
-
-- [Promise](#Promise)
-
-- [异步函数](#异步函数)
-
-- [genrerator](#genrerator)
-
 ## 回调函数
 
 ### 含义

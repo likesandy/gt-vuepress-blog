@@ -8,4 +8,5 @@ module.exports = [
   'function',
   'class',
   'interface',
+  'genericity',
 ]
