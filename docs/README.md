@@ -1,12 +1,13 @@
 ---
-
 home: true
 heroImage: /sandy.jpg
 actionText: Hello World
 heroText: codertao
 actionLink: /about/
 footer:
----## 关于~~文档~~笔记
+---
+
+## 关于~~文档~~笔记
 
 :::danger
 这根本不是什么文档，仅仅是一个个人笔记而已。

@@ -148,6 +148,142 @@ const info: IPerson = {
 };
 ```
 
+## 接口的实现
+
+接口定义后，也是可以被类实现的：
+
+- 如果被一个类实现，那么在之后需要传入接口的地方，都可以将这个类传入；
+- 这就是**面向接口**开发；
+
+```ts
+interface ISay {
+  say: () => void;
+}
+
+interface IEat {
+  eat: () => void;
+}
+
+function foo(bar: ISay) {}
+
+// 继承:只能实现单继承
+// 接口:可以实现多个接口
+class Person implements ISay, IEat {
+  say() {}
+  eat() {}
+}
+```
+
+```ts
+// 编写一些共同的API就可以使用面向接口开发
+// 面向接口开发属于面向对象中的概念
+interface ISay {
+  say: () => void;
+}
+
+interface IEat {
+  eat: () => void;
+}
+
+class Person implements ISay, IEat {
+  say() {}
+  eat() {}
+}
+
+function foo(bar: Person) {
+  bar.say();
+  bar.eat();
+}
+
+// 所有实现了接口的类对应的对象,都是可以传入的
+foo(new Person());
+```
+
+## interface 和 type 区别
+
+我们会发现 interface 和 type 都可以用来定义对象类型，那么在开发中定义对象类型时，到底选择哪一个呢？
+
+- 如果是定义非对象类型，通常推荐使用 type，比如 Direction、Alignment、一些 Function；
+
+如果是定义对象类型，那么他们是有区别的：
+
+- interface 可以重复的对某个接口来定义属性和方法；
+- 而 type 定义的是别名，别名是不能重复的；
+
+```ts
+interface Person {
+  name: string;
+}
+
+// 定义同名的多个接口的时候,接口内部的属性会进行合并
+interface Person {
+  age: number;
+}
+```
+
+```ts
+type Person {
+  name: string;
+}
+
+// 报错 重复的标识符'Person'。
+type Person {
+  age: number;
+}
+
+```
+
+当然官网文档中也有提到
+::: warning 提示
+For the most part, you can choose based on personal preference, and TypeScript will tell you if it needs something to be the other kind of declaration. If you would like a heuristic, use interface until you need to use features from type.
+
+在大多数情况下，你可以根据**个人喜好**来选择，TypeScript 会告诉你，如果它需要的东西是其他类型的声明。如果你想要一个启发式的方法，请使用 interface，直到你需要使用来自 type 的特性。
+:::
+
+## 字面量赋值
+
+和字面量类型大致相似,但还是有不同点
+
+```ts
+interface IPerson {
+  name: string;
+  age: number;
+  say: () => void;
+}
+
+const info: IPerson = {
+  name: 'tao',
+  age: 19,
+  say() {}
+  // 报错,IPerson没有eat
+  eat(){}
+};
+
+
+```
+
+这是因为 TypeScript 在字面量直接赋值的过程中，为了进行类型推导会进行严格的类型限制。
+
+但是之后如果我们是将一个 变量标识符 赋值给其他的变量时，会进行 freshness **擦除**操作。
+
+```ts
+interface IPerson {
+  name: string;
+  age: number;
+  say: () => void;
+}
+
+const info = {
+  name: "tao",
+  age: 19,
+  say() {},
+  eat() {},
+};
+
+const p: IPerson = info;
+console.log(p);
+```
+
 ## 交叉类型
 
 前面我们学习了联合类型：
@@ -187,4 +323,81 @@ const info: IPerson = {
   name: "tao",
   age: 19,
 };
+```
+
+## 枚举类型
+
+枚举类型是为数不多的 TypeScript 特性有的特性之一：
+
+- 枚举其实就是将一组可能出现的值，一个个列举出来，定义在一个类型中，这个类型就是枚举类型；
+- 枚举允许开发者定义一组命名常量，常量可以是数字、字符串类型；
+
+```ts
+enum Direction {
+  LEFT,
+  TOP,
+  RIGHT,
+  BOTTOM,
+}
+
+function turnDirection(direction: Direction) {
+  switch (direction) {
+    case Direction.LEFT:
+      console.log("向左转动");
+      break;
+    case Direction.TOP:
+      console.log("向上转动");
+      break;
+    case Direction.RIGHT:
+      console.log("向右转动");
+      break;
+    case Direction.BOTTOM:
+      console.log("向下转动");
+      break;
+    default:
+      const myDirection: never = direction;
+  }
+}
+
+turnDirection(Direction.LEFT); // 向左转动
+turnDirection(Direction.TOP); // 向上转动
+turnDirection(Direction.RIGHT); // 向右转动
+turnDirection(Direction.BOTTOM); // 向下转动
+```
+
+### 枚举类型的值
+
+枚举类型默认是有值的，比如上面的枚举，默认值是这样的：
+
+```ts
+enum Direction {
+  LEFT = 0,
+  TOP = 1,
+  RIGHT = 2,
+  BOTTOM = 3,
+}
+```
+
+当然，我们也可以给枚举其他值：
+
+- 这个时候会从 100 进行递增；
+
+```ts
+enum Direction {
+  LEFT = 100,
+  TOP = 1,
+  RIGHT = 2,
+  BOTTOM = 3,
+}
+```
+
+我们也可以给他们赋值其他的类型：
+
+```ts
+enum Direction {
+  LEFT = "LEFT",
+  TOP = "TOP",
+  RIGHT = "RIGHT",
+  BOTTOM = "BOTTOM",
+}
 ```
