@@ -29,6 +29,11 @@ module.exports = [
   },
   { text: '面试宝典', link: '/interview/' },
   { text: '收藏', link: '/collect/' },
+  {
+    text: '更多', items: [
+      { text: '项目约束', link: '/more/lint/' },
+    ]
+  },
   { text: '关于', link: '/about/' },
   { text: 'Github', link: 'https://github.com/likesandy', },
 ]

@@ -9,4 +9,5 @@ module.exports = [
   'class',
   'interface',
   'genericity',
+  'other'
 ]

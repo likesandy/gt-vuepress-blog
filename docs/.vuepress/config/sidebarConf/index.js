@@ -11,4 +11,5 @@ module.exports = {
   '/type-script/': require('./type-script'),
   '/pack/webpack/': require('./pack/webpack'),
   '/pack/vite/': require('./pack/vite'),
+  '/more/lint/': require('./more/lint'),
 };
