@@ -10,6 +10,7 @@ module.exports = {
   ],
   plugins: pluginConf,
   themeConfig: {
+    logo: '/sandy.jpg',
     nav: navConf,
     sidebar: sidebarConf,
     lastUpdated: '上次更新',
