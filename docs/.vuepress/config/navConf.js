@@ -23,9 +23,10 @@ module.exports = [
   { text: '👏优文转载', link: '/collect/' },
   {
     text: '🌈更多', items: [
-      { text: '🏳️‍🌈项目约束', link: '/more/lint/' },
-      { text: '🛫Github', link: 'https://github.com/likesandy', },
-      { text: '🛫immutable', link: '/immutable/', },
+      { text: 'Github', link: 'https://github.com/likesandy', },
+      { text: '项目约束', link: '/more/lint/' },
+      { text: 'VueRouter', link: '/more/vue-router/', },
+      { text: 'Vuex', link: '/more/vuex/', },
     ]
   },
 ]

@@ -12,4 +12,6 @@ module.exports = {
   '/pack/webpack/': require('./pack/webpack'),
   '/pack/vite/': require('./pack/vite'),
   '/more/lint/': require('./more/lint'),
+  '/more/vuex/': require('./more/vuex'),
+  '/more/vue-router/': require('./more/vue-router'),
 };

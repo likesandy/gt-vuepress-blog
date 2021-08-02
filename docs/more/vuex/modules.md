@@ -66,7 +66,7 @@ const homeClick = () => {
 },
 ```
 
-![](/frame/vue/vuex/5.gif)
+![](/more/vuex/3.gif)
 
 同样 Actions 也会执行所有名称相同的 action
 
