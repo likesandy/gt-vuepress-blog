@@ -2,7 +2,7 @@ module.exports = [
   { text: '⛪首页', link: '/' },
   { text: '🎉前言', link: '/about/' },
   {
-    text: '🔥前端', items: [
+    text: '🔥前端', children: [
       { text: 'HTML', link: '/basics/html/' },
       { text: 'CSS', link: '/basics/css/' },
       { text: 'JavaScript', link: '/basics/javascript/' },
@@ -15,14 +15,14 @@ module.exports = [
   },
   // { text: 'Git', link: '/git/' },
   {
-    text: '📚书籍', items: [
+    text: '📚书籍', children: [
       { text: 'JavaScript高级程序设计', link: '/books/ruby/' },
     ]
   },
   { text: '🤡面试宝典', link: '/interview/' },
   { text: '👏优文转载', link: '/collect/' },
   {
-    text: '🌈更多', items: [
+    text: '🌈更多', children: [
       { text: 'Github', link: 'https://github.com/likesandy', },
       { text: '项目约束', link: '/more/lint/' },
       { text: 'VueRouter', link: '/more/vue-router/', },

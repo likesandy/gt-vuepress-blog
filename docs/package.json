@@ -1,18 +1,16 @@
 {
   "devDependencies": {
-    "@vuepress/plugin-medium-zoom": "^1.8.2",
-    "vuepress": "^1.8.2",
-    "vuepress-plugin-go-top": "^1.0.4",
-    "vuepress-plugin-smooth-scroll": "^0.0.3"
+    "@vuepress/plugin-medium-zoom": "^2.0.0-beta.21",
+    "vuepress": "^2.0.0-beta.21",
+    "vuepress-vite": "^2.0.0-beta.21",
+    "@vuepress/plugin-search": "^2.0.0-beta.21"
   },
   "scripts": {
     "dev": "vuepress dev ",
-    "build": "vuepress build ",
-    "deploy": "cloudbase framework deploy"
+    "build": "vuepress build "
   },
   "dependencies": {
     "moment": "^2.29.1",
-    "vuepress-plugin-img-lazy": "^1.0.4",
-    "vuepress-plugin-reading-progress": "^1.0.10"
+    "vuepress-plugin-auto-sidebar": "^2.4.0-alpha.1"
   }
 }
