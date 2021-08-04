@@ -11,4 +11,4 @@ Git 的话我这里就不进行讲解了,有很多非常不错的文章看一下
 - [Git 版本控制](https://www.jianshu.com/p/c20b416e6db3)
 - [Git 教程](https://www.liaoxuefeng.com/wiki/896043488029600)
 
-**后续**还要继续更新 Git 方面的内容
+后续还要继续更新 Git 方面的内容

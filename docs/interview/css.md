@@ -170,7 +170,7 @@ son.style.top = (fatherH - sonH) / 2 + "px";
 
 ### 双飞翼布局
 
-圣杯布局和双飞翼原理都是差不多的,左右固定,中间自适应,**差别**我觉得是实现的方式不一样
+圣杯布局和双飞翼原理都是差不多的,左右固定,中间自适应,差别我觉得是实现的方式不一样
 
 ### calc
 
@@ -204,11 +204,11 @@ son.style.top = (fatherH - sonH) / 2 + "px";
 
 ## BFC
 
-**含义**
+含义
 
 在布局中有三大定位方案,普通流,浮动和定位,通常情况下我们编写的布局都是在普通流中进行编写的,BFC 是块级格式化上下文,它属于普通流,BFC 相当于在普通流中是一个盒子,盒子内部不会影响外部,
 
-**触发 BFC 条件**
+触发 BFC 条件
 
 - body 根元素
 - 浮动元素：float 除 none 以外的值
@@ -216,7 +216,7 @@ son.style.top = (fatherH - sonH) / 2 + "px";
 - display 为 inline-block、table-cells、flex
 - overflow 除了 visible 以外的值 (hidden、auto、scroll)
 
-**特性和使用**
+特性和使用
 
 同一个 BFC 下边距会发生折叠
 

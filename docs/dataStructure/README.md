@@ -16,14 +16,14 @@ title: 前言
 
 ## 常见的数据结构
 
-- **数组**（Aarray）
-- **栈**（Stack）
-- **链表**（Linked List）
-- **图**（Graph）
-- **散列表**（Hash）
-- **队列**（Queue）
-- **树**（Tree）
-- **堆**（Heap）
+- 数组（Aarray）
+- 栈（Stack）
+- 链表（Linked List）
+- 图（Graph）
+- 散列表（Hash）
+- 队列（Queue）
+- 树（Tree）
+- 堆（Heap）
 
 :::tip
 注意：数据结构与算法与语言无关，常见的编程语言都有直接或间接的使用上述常见的数据结构。

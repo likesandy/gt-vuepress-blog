@@ -4,7 +4,7 @@ title: 项目规范
 
 ## 集成 editorconfig 配置
 
-EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的**编码风格**。
+EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开发人员维护一致的编码风格。
 
 📖 官网:[http://editorconfig.org](http://editorconfig.org)
 
@@ -28,7 +28,7 @@ EditorConfig 有助于为不同 IDE 编辑器上处理同一项目的多个开�
 
 ## 使用 prettier 工具
 
-Prettier 是一款强大的代码格式化工具，支持 JavaScript、TypeScript、CSS、SCSS、Less、JSX、Angular、Vue、GraphQL、JSON、Markdown 等语言，基本上前端能用到的文件格式它都可以搞定，是当下最流行的**代码格式化工具**。
+Prettier 是一款强大的代码格式化工具，支持 JavaScript、TypeScript、CSS、SCSS、Less、JSX、Angular、Vue、GraphQL、JSON、Markdown 等语言，基本上前端能用到的文件格式它都可以搞定，是当下最流行的代码格式化工具。
 
 1.安装 prettier
 

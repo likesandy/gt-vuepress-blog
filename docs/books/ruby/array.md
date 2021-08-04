@@ -4,7 +4,7 @@ title: Array
 
 除了 Object，Array 应该就是 ECMAScript 中最常用的类型了。ECMAScript 数组跟其他编程语言
 的数组有很大区别。跟其他语言中的数组一样，ECMAScript 数组也是一组有序的数据，但跟其他语言
-不同的是，数组中每个槽位可以存储**任意类型**的数据。这意味着可以创建一个数组，它的第一个元素
+不同的是，数组中每个槽位可以存储任意类型的数据。这意味着可以创建一个数组，它的第一个元素
 是字符串，第二个元素是数值，第三个是对象。ECMAScript 数组也是动态大小的，会随着数据添加而
 自动增长
 
@@ -19,7 +19,7 @@ title: Array
 
 ### 构造函数
 
-**语法**
+语法
 
 ```ts
 // Array(arrayLength?: number) => any[]
@@ -47,7 +47,7 @@ let colors = new Array(3); // 创建一个包含 3 个元素的数组
 let names = new Array("Greg"); // 创建一个只包含一个元素，即字符串"Greg"的数组
 ```
 
-在使用 Array 构造函数时，也可以**省略 new 操作符**。结果是一样的
+在使用 Array 构造函数时，也可以省略 new 操作符。结果是一样的
 
 ```js
 let colors = Array(3); // 创建一个包含 3 个元素的数组
@@ -66,33 +66,33 @@ let values = [1, 2]; // 创建一个包含 2 个元素的数组
 ```
 
 :::warning
-与对象一样，在使用数组字面量表示法创建数组**不会调用** Array 构造函数。
+与对象一样，在使用数组字面量表示法创建数组不会调用 Array 构造函数。
 :::
 
 ### from
 
-Array.from() 方法从一个类似数组或可迭代对象**创建一个新的**，浅拷贝的数组**实例**。
+Array.from() 方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
 
-**语法**
+语法
 
 ```ts
 from(iterable: Iterable<any> | ArrayLike<any>, mapfn: (v: any, k: number) => number, thisArg?: any): any[]
 ```
 
-**参数**
+参数
 
 - arrayLike
-  - 想要转换成数组的**伪数组对象**或**可迭代对象**。
+  - 想要转换成数组的伪数组对象或可迭代对象。
 - mapFn?(可选)
   - 如果指定了该参数，新数组中的每个元素会执行该回调函数。
 - thisArg?(可选)
   - 可选参数，执行回调函数 mapFn 时 this 对象。
 
-**返回值**
+返回值
 
 一个新的数组实例
 
-**描述**
+描述
 
 Array.from()的第一个参数是一个类数组对象，即任何可迭代的结构，或者有一个 length 属性
 和可索引元素的结构。
@@ -131,7 +131,7 @@ Array.from()还接收第二个可选的映射函数参数。这个函数可以�
 
 ```js
 const a1 = [1, 2, 3, 4];
-const a2 = Array.from(a1, (x) => x ** 2);
+const a2 = Array.from(a1, (x) => x  2);
 console.log(a2); // [1, 4, 9, 16]
 ```
 
@@ -142,7 +142,7 @@ console.log(a2); // [1, 4, 9, 16]
 const a3 = Array.from(
   a1,
   function(x) {
-    return x ** this.exponent;
+    return x  this.exponent;
   },
   { exponent: 2 }
 );
@@ -153,25 +153,25 @@ console.log(a3); // [1, 4, 9, 16]
 
 Array.of() 方法创建一个具有可变数量参数的新数组实例，而不考虑参数的数量或类型。
 
-**语法**
+语法
 
 ```ts
 Array.of(...items: any[]): any[]
 ```
 
-**参数**
+参数
 
 - items
   - 可扩展性的 item
 
-**返回值**
+返回值
 
 一个新的数组实例
 
-**描述**
+描述
 
 这个方法用于替代在 ES6 之前常用的 Array.prototype.
-slice.call(arguments)，一种**异常笨拙**的将 arguments 对象转换为数组的写法
+slice.call(arguments)，一种异常笨拙的将 arguments 对象转换为数组的写法
 
 ```js
 console.log(Array.of(1, 2, 3, 4)); // [1, 2, 3, 4]
@@ -242,7 +242,7 @@ console.log(options.map(() => 6)); // [6, undefined, undefined, undefined, 6]
 ```
 
 :::warning
-由于行为不一致和存在性能隐患，因此实践中要**避免使用**数组空位。如果确实需要
+由于行为不一致和存在性能隐患，因此实践中要避免使用数组空位。如果确实需要
 空位，则可以显式地用 undefined 值代替。
 :::
 
@@ -357,7 +357,7 @@ if (Array.isArray(colors)) {
 }
 ```
 
-**instanceof 和 isArray**
+instanceof 和 isArray
 
 当检测 Array 实例时, Array.isArray 优于 instanceof,因为 Array.isArray 能检测 iframes.
 
@@ -403,26 +403,26 @@ for (const [idx, element] of a.entries()) {
 
 fill() 方法用一个固定值填充一个数组中从起始索引到终止索引内的全部元素。不包括终止索引。
 
-**语法**
+语法
 
 ```ts
 fill(value: number, start?: number, end?: number): this
 ```
 
-**参数**
+参数
 
 - value
   - 用来填充数组元素的值
 - start
   - 起始索引，默认值为 0
 - end
-  - 终止索引，默认值为 **this.length**
+  - 终止索引，默认值为 this.length
 
-**返回值**
+返回值
 
 - 修改后的数组
 
-**描述**
+描述
 如果 start 是个负数, 则开始索引会被自动计算成为 length+start, 其中 length 是 this 对象的 length 属性值。如果 end 是个负数, 则结束索引会被自动计算成为 length+end。
 
 fill 方法故意被设计成通用方法, 该方法不要求 this 是数组对象。
@@ -487,13 +487,13 @@ arr[0].hi = "hi"; // [{ hi: "hi" }, { hi: "hi" }, { hi: "hi" }]
 
 copyWithin() 方法浅复制数组的一部分到同一数组中的另一个位置，并返回它，不会改变原数组的长度。
 
-**语法**
+语法
 
 ```ts
 copyWithin(target: number, start: number, end?: number): this
 ```
 
-**参数**
+参数
 
 - target
   - 0 为基底的索引，复制序列到该位置。如果是负数，target 将从末尾开始计算。
@@ -505,11 +505,11 @@ copyWithin(target: number, start: number, end?: number): this
   - 0 为基底的索引，开始复制元素的结束位置。copyWithin 将会拷贝到该位置，但不包括 end 这个位置的元素。如果是负数， end 将从末尾开始计算。
   - 如果 end 被忽略，copyWithin 方法将会一直复制至数组结尾（默认为 arr.length）。
 
-**返回值**
+返回值
 
 - 改变后的数组。
 
-**描述**
+描述
 
 与 fill()不同，copyWithin()会按照指定范围浅复制数组中的部分内容，然后将它们插入到指
 定索引开始的位置。开始索引和结束索引则与 fill()使用同样的计算方法
@@ -534,17 +534,17 @@ console.log(array1.copyWithin(-2, -4, -3)); // ['a','b','c','b','e'];
 
 toString() 返回一个字符串，表示指定的数组及其元素。
 
-**语法**
+语法
 
 ```ts
 Array.toString(): string
 ```
 
-**返回值**
+返回值
 
 - 一个表示指定的数组及其元素的字符串。
 
-**描述**
+描述
 
 Array 对象覆盖了 Object 的 toString 方法。对于数组对象，toString 方法连接数组并返回一个字符串，其中包含用逗号分隔的每个数组元素。
 
@@ -561,31 +561,31 @@ alert(colors.valueOf()); // red,blue,green
 alert(colors); // red,blue,green
 ```
 
-首先是被**显式调用**的 toString()和 valueOf()方法，它们分别返回了数组的字符串表示，即将所有字符串组合起来，以逗号分隔。最后一行代码直接用 alert()显示数组，因为 alert()期待字符
+首先是被显式调用的 toString()和 valueOf()方法，它们分别返回了数组的字符串表示，即将所有字符串组合起来，以逗号分隔。最后一行代码直接用 alert()显示数组，因为 alert()期待字符
 串，所以会在后台调用数组的 toString()方法，从而得到跟前面一样的结果。
 
 ### Array.prototype.toLocaleString()
 
 toLocaleString() 返回一个字符串表示数组中的元素。数组中的元素将使用各自的 toLocaleString 方法转成字符串，这些字符串将使用一个特定语言环境的字符串（例如一个逗号 ","）隔开。
 
-**语法**
+语法
 
 ```ts
 Array.toLocaleString(locales?: string | array ,options?): string
 ```
 
-**参数**
+参数
 
 - locales
   - 带有 BCP 47 语言标记的字符串或字符串数组，关于 locales 参数的形式与解释，请看 Intl 页面。
 - options
   - 一个可配置属性的对象，对于数字 Number.prototype.toLocaleString()，对于日期 Date.prototype.toLocaleString().
 
-**返回值**
+返回值
 
 - 表示数组元素的字符串。
 
-**描述**
+描述
 数组中的元素将会使用各自的 toLocaleString 方法：
 
 - Object: Object.prototype.toLocaleString()
@@ -641,16 +641,16 @@ join() 方法将一个数组（或一个类数组对象）的所有元素连接�
 Array.join(separator?: string): string
 ```
 
-**参数**
+参数
 
 - separator
   - 指定一个字符串来分隔数组的每个元素。如果需要，将分隔符转换为字符串。如果缺省该值，数组元素用逗号（,）分隔。如果 separator 是空字符串("")，则所有元素之间都没有任何字符。
 
-**返回值**
+返回值
 
 - 一个所有数组元素连接的字符串。如果 arr.length 为 0，则返回空字符串。
 
-**描述**
+描述
 
 所有的数组元素被转换成字符串，再用一个分隔符将这些字符串连接起来。
 
@@ -678,8 +678,8 @@ let myVar1 = a.join(); // myVar1的值变为"Wind,Rain,,"
 ## 栈方法
 
 ECMAScript 给数组提供几个方法，让它看起来像是另外一种数据结构。数组对象可以像栈一样，
-也就是一种限制插入和删除项的数据结构。栈是一种**后进先出**（LIFO，Last-In-First-Out）的结构，也就
-是最近添加的项先被删除。数据项的插入（称为**推入**，push）和删除（称为**弹出**，pop）只在栈的一个
+也就是一种限制插入和删除项的数据结构。栈是一种后进先出（LIFO，Last-In-First-Out）的结构，也就
+是最近添加的项先被删除。数据项的插入（称为推入，push）和删除（称为弹出，pop）只在栈的一个
 地方发生，即栈顶。ECMAScript 数组提供了 push()和 pop()方法，以实现类似栈的行为。
 
 push()方法接收任意数量的参数，并将它们添加到数组末尾，返回数组的最新长度。pop()方法则
@@ -719,7 +719,7 @@ alert(item); // black
 
 ## 搜索和位置方法
 
-ECMAScript 提供两类搜索数组的方法：按**严格相等搜索**和**按断言函数搜索**。
+ECMAScript 提供两类搜索数组的方法：按严格相等搜索和按断言函数搜索。
 
 ### 严格相等
 
