@@ -1,6 +1,8 @@
 ## 🏠 我的博客
 
-> 项目地址: https://codertao-5gtji6px790f1ec4-1303844936.tcloudbaseapp.com/
+已迁移新的地址
+> GitHub: https://codertao-5gtji6px790f1ec4-1303844936.tcloudbaseapp.com/
+> Gitee: https://itsandy.gitee.io/sandy.gitee.io/#/
 
 ## 🎨 博客截图
 
