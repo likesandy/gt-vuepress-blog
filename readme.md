@@ -1,7 +1,7 @@
 ## 🏠 我的博客
 
 已迁移新的地址
-> GitHub: https://codertao-5gtji6px790f1ec4-1303844936.tcloudbaseapp.com/
+> GitHub: https://likesandy.github.io/#/
 
 > Gitee: https://itsandy.gitee.io/sandy.gitee.io/#/
 
